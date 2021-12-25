@@ -1,0 +1,328 @@
+// .nb-theme-dark nb-layout .layout .layout-container .content .columns nb-layout-column {
+//   padding: 1rem 0;
+// }
+
+// :host {
+//   @include nb-ltr(padding-left, 1em);
+//   @include nb-rtl(padding-right, 1em);
+// }
+@import "../../shared/styles/variables/_variables.scss";
+
+
+.ng-select {
+  // padding-bottom: 3rem;
+
+  &.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value {
+    background: linear-gradient(to right, $gradient-start 0%, $gradient-end 100%);
+    color: $text-light;
+    border-radius: $lbr;
+    padding: $spacing/4 $spacing;
+
+    margin: .3rem 1rem;
+
+    .ng-value .ng-value-icon.left {
+      border-left: none;
+    }
+  }
+
+  span {
+    color: $text-light;
+  }
+
+  .ng-select-container {
+    width: 100%;
+    border: none;
+    background: transparent;
+    line-height: 2em;
+    border-bottom: 1px solid #fff;
+    color: $text-dark;
+
+    &:hover {
+      border-color: $border;
+      transition-timing-function: ease-in;
+    }
+  }
+
+  .ng-dropdown-panel {
+    left: 0;
+
+    .ng-select-bottom {
+      box-shadow: 0 0.5rem 1rem 0 rgba(44, 51, 73, 0.1);
+      border: none;
+    }
+
+    .ng-dropdown-panel-items .ng-option {
+      text-align: start;
+      background: rgba(0, 0, 0, .3);
+      padding: .5rem;
+    }
+
+  }
+}
+
+:host nb-layout-header ::ng-deep nav {
+  justify-content: space-between;
+}
+
+::ng-deep nb-layout-header {
+  //background-color:  var(--layout-background-color);
+}
+
+
+
+
+// --------------------------------- date picker start-------------------------------
+.date-picker {
+  // position: relative;
+  //  display: flex;
+  //  justify-content: center;
+  //  align-items: center;
+  //  flex-direction: column;
+
+  label {
+    pointer-events: none;
+    font-size: 0.85em;
+    // display: block;
+    transform: translateY(-50%);
+    transition: all ease-in 0.25s;
+    color: lighten(#fff, 20%);
+  }
+
+  input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    color: $text-light;
+    text-align: center;
+
+    &:focus {
+      outline: none;
+      border-width: 3px;
+      border-image: linear-gradient(to right, $gradient-start, $gradient-end);
+      border-image-slice: 1;
+
+    }
+
+    //  .ng-invalid.ng-touched{
+    //     border-bottom: 1px solid $error;
+    //     }
+  }
+
+}
+
+::ng-deep ng-persian-datepicker .datepicker-outer-container {
+  // background: radial-gradient(circle, rgba(16, 18, 45, 1) 43%, rgba(8, 9, 27, 1) 80%) !important;
+
+  .days-container .month-days .day-col {
+    // color: $text-light;
+  }
+}
+
+// --------------------------------- date picker end -------------------------------
+
+
+
+
+
+
+
+// ---------------------------------  ck editor start -------------------------------
+
+.ck.ck-content.ck-editor__editable.ck-editor__editable_inline {
+  outline: none;
+ // margin: 2rem;
+ border-style: solid;
+  border-width: 3px;
+  border-image: linear-gradient(to right, $gradient-start, $gradient-end);
+  border-image-slice: 1;
+  min-height: 200px;
+
+  :last-child {
+    color: $text-light;
+  }
+}
+
+// ---------------------------------  ck editor end -------------------------------
+
+
+
+// --------------------------------- upload image start-------------------------------
+
+
+.customUpload {
+  margin-top: 2rem;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+
+  img {
+    border: 1px solid #03BFCB;
+    padding: 7px;
+    width: 10rem;
+    height: 10rem;
+  }
+}
+
+// --------------------------------- upload image end-------------------------------
+
+
+
+
+//------------------------------------------------------ nb tabset start --------------------------------------------------
+
+::ng-deep nb-tabset .tab.active .tab-link::before {
+  background-color: $highlight-color;
+
+  // background: linear-gradient(to right, $gradient-start 0%, $gradient-end 100%);
+}
+
+::ng-deep nb-tabset .tab .tab-link:hover::before {
+  background-color: $highlight-color;
+
+}
+
+::ng-deep nb-tabset .tab.active .tab-link {
+  color: $highlight-color;
+
+}
+
+
+
+
+
+
+::ng-deep nb-tabset .tabset .tab {
+  :hover {
+    color: $highlight-color;
+  }
+
+  a {
+    outline: none;
+    color: $text-light;
+
+  }
+}
+
+
+
+//------------------------------------------------------ nb tabset end --------------------------------------------------
+
+
+//------------------------------------------------------ nb sidebar start--------------------------------------------------
+
+
+::ng-deep nb-sidebar {
+  background-color: transparent;
+}
+
+//------------------------------------------------------ nb sidebar end --------------------------------------------------
+
+
+
+
+//------------------------------------------------------ smart table start --------------------------------------------------
+
+::ng-deep {
+  snack-bar-container.mat-snack-bar-container {
+    border: solid 2px cyan;
+    filter: drop-shadow(0 0 8px cyan)
+  }
+
+  ::ng-deep ng2-smart-table {
+
+
+    .ng2-smart-actions ng2-st-tbody-edit-delete,
+    ng2-smart-table .ng2-smart-actions ng2-st-tbody-create-cancel,
+    ng2-smart-table .ng2-smart-actions ng2-st-actions {
+      display: none;
+    }
+
+    th.ng2-smart-actions-title-add a {
+
+      background-color: transparent;
+
+      :hover {
+        background-color: transparent;
+      }
+
+    }
+
+    input {
+      background: transparent;
+      border: none;
+      text-align: center;
+
+      &:focus {
+        outline: none;
+      }
+
+    }
+
+    td {
+      background: transparent;
+      border: none;
+      outline: none;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    th {
+      &:focus {
+        outline: none;
+      }
+    }
+
+    tbody {
+      background: linear-gradient(to right, $gradient-start 0%, $gradient-end 100%);
+      tr:hover{
+        background-color: $highlight-color!important;
+      }
+
+    }
+
+    .ng2-smart-actions a.ng2-smart-action {
+      font-size: 1rem !important;
+    }
+
+
+
+
+    nav.ng2-smart-pagination-nav {
+      .ng2-smart-pagination .page-item.disabled .page-link {
+        color: $text-light;
+
+        :hover {
+          color: $highlight-color;
+
+        }
+
+        :hover {
+          color: $highlight-color;
+
+        }
+      }
+
+      .pagination li a {
+        color: $text-light;
+
+        :hover {
+          color: $highlight-color;
+
+        }
+      }
+
+    }
+
+
+
+    ng2-smart-table-pager {
+      justify-content: center !important;
+
+
+    }
+
+  }
+}

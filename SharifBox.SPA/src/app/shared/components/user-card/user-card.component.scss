@@ -1,0 +1,55 @@
+
+@import "../../../shared/styles/variables/_variables.scss";
+
+.login-container {
+  border-radius: 5px;
+  background: transparent;
+  position: relative;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+  .profile-img {
+    height: 5rem;
+    width: 5rem;
+    //background: '../../../../assets/images/Profile_avatar_placeholder_large (1).png';
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: -25px;
+    left: -25px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+    img{
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+    }
+  }
+
+  .cancel{
+    height: 30px;
+    width: 30px;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span{
+      color: #0a2033;
+    }
+  }
+  h3 {
+    font-family: 'Sriracha', arial, sans-serif;
+    text-align: right;
+    margin-left: 4rem;
+    font-size: 1em;
+    text-align: center;
+padding-right: .5rem;
+  }
+
+
+}
+

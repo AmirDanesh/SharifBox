@@ -1,0 +1,43 @@
+@import "../../../shared/styles/variables/_variables.scss";
+
+
+.headerWrapper {
+
+  background: $light-bg-color;
+
+  .imageWrapper {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border: 1px solid $border;
+    border-radius: 50%;
+    padding: 7px;
+
+    img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+    }
+  }
+
+}
+
+
+.bodyWrapper {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+
+::ng-deep app-user-card .login-container .cancel{
+  display: none!important;
+}
+label{
+  color: $text-light;
+}
+.container{
+  margin-bottom:5rem ;
+}

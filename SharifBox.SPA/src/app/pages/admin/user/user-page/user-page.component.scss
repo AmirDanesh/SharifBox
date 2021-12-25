@@ -1,0 +1,22 @@
+@import "../../../../shared/styles/variables/_variables.scss";
+@import "../../../../shared/styles/override";
+
+::ng-deep {
+  ng2-smart-table table {
+    thead tr.ng2-smart-titles th {
+      padding: .2rem;
+    }
+
+    tr td {
+      padding: .5rem !important;
+    }
+  }
+
+  app-readonly-input input.inputWrapper {
+    margin: 1rem 0 !important;
+  }
+
+  // nb-layout-column #main {
+  //   width: 100%;
+  // }
+}

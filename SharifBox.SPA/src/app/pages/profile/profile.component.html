@@ -1,0 +1,74 @@
+<div class="wrapper">
+  <label class="customUpload">
+    <img [src]="profileForm.get('imageProfile')?.value" [alt]="profileForm.value.name">
+    <input type="file" accept="image/*" (change)="showPreview($event)" hidden />
+  </label>
+</div>
+
+<nb-tabset fullWidth>
+  <nb-tab tabTitle="اطلاعات">
+    <form [formGroup]="profileForm">
+      <div class="row justify-content-around">
+        <div class="col-lg-4 col-10">
+          <app-input placeholder="نام" type="text" label="نام" formControlName="firstName"></app-input>
+          <div class="d-flex justify-content-center"
+            *ngIf="profileForm.controls.firstName.invalid && profileForm.controls.firstName.touched">
+            <span *ngIf="profileForm.controls.firstName.hasError('required')">نام خود را وارد کنید</span>
+          </div>
+        </div>
+        <div class="col-lg-4 col-10">
+          <app-input placeholder="نام خانوادگی" type="text" label="نام خانوادگی" formControlName="lastName"></app-input>
+          <div class="d-flex justify-content-center"
+            *ngIf="profileForm.controls.lastName.invalid && profileForm.controls.lastName.touched">
+            <span *ngIf="profileForm.controls.lastName.hasError('required')">نام خانوادگی خود را وارد کنید</span>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-around my-3">
+        <div class="col-lg-4 col-10">
+          <app-input placeholder="آدرس" type="text" label=" آدرس" formControlName="address"></app-input>
+          <div class="d-flex justify-content-center"
+            *ngIf="profileForm.controls.address.invalid && profileForm.controls.address.touched">
+            <span *ngIf="profileForm.controls.address.hasError('required')">آدرس خود را وارد کنید</span>
+          </div>
+        </div>
+        <div class="col-lg-4 col-10">
+
+          <app-input placeholder="کدملی" type="text" label="کدملی" formControlName="nationalCode"></app-input>
+          <div class="d-flex justify-content-center"
+            *ngIf="profileForm.controls.nationalCode.invalid && profileForm.controls.nationalCode.touched">
+            <span *ngIf="profileForm.controls.nationalCode.hasError('required')">کدملی خود را وارد کنید</span>
+          </div>
+
+        </div>
+      </div>
+
+
+    </form>
+  </nb-tab>
+
+  <nb-tab tabTitle="مهارت ها" class="p-5 mb-5">
+    <h5>مهارت ها</h5>
+    <form [formGroup]="profileForm">
+      <div class="row">
+        <div class="col-12">
+          <ng-select
+          formControlName="skillIds"
+          [items]="skillsDropDown"
+          [addTag]="addTagFn"
+          [hideSelected]="true"
+          [multiple]="true"
+          bindLabel="name"
+          bindValue="id"
+          [dropdownPosition]="'top'">
+          </ng-select>
+        </div>
+      </div>
+    </form>
+  </nb-tab>
+</nb-tabset>
+
+<div class="row m-2">
+
+<app-btn label="ثبت" (click)="submitProfile()"></app-btn>
+</div>

@@ -1,0 +1,288 @@
+@import '../../shared/styles/themes.scss';
+@import '../../shared/styles/variables/variables';
+// @import "../../shared/styles/_override.scss";
+
+@include nb-install-component {}
+
+// ------------------------------------ background cube start -------------------------------------------
+
+.cube {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: solid .5px darken(#113555, 8%);
+  transform-origin: top left;
+  transform: scale(0) rotate(0deg) translate(-50%, -50%);
+  animation: cube 12s ease-in forwards infinite;
+
+  &:nth-child(2n) {
+    border-color: lighten(#113555, 10%);
+  }
+
+  &:nth-child(2) {
+    animation-delay: 1s;
+    right: 8vw;
+    top: 70vh;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 3s;
+    left: 60vw;
+    top: 40vh;
+  }
+
+  &:nth-child(4) {
+    animation-delay: 5s;
+    left: 5vw;
+    top: 70vh;
+  }
+
+  &:nth-child(5) {
+    animation-delay: 3s;
+    right: 8vw;
+    top: 40vh;
+  }
+
+  &:nth-child(6) {
+    animation-delay: 5s;
+    right: 9vw;
+    top: 80vh;
+  }
+
+  &:nth-child(7) {
+    animation-delay: 7s;
+    left: 30vw;
+    top: 10vh;
+  }
+
+  &:nth-child(8) {
+    animation-delay: 9s;
+    right: 30vw;
+    bottom: 10vh;
+  }
+
+  &:nth-child(9) {
+    animation-delay: 1s;
+    right: 2vw;
+    top: 8vh;
+  }
+
+  &:nth-child(10) {
+    animation-delay: 2s;
+    left: 2vw;
+    top: 8vh;
+  }
+
+  &:nth-child(11) {
+    animation-delay: 3s;
+    right: 2vw;
+    bottom: 8vh;
+  }
+
+  &:nth-child(12) {
+    animation-delay: 1s;
+    left: 2vw;
+    bottom: 8vh;
+  }
+}
+
+@keyframes cube {
+  from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(20) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+// ------------------------------------ background cube end -------------------------------------------
+
+
+// ------------------------------------ sidebar start -------------------------------------------
+
+
+::ng-deep {
+  nb-sidebar {
+    &.z1 {
+      z-index: 1;
+    }
+
+    .main-container.main-container-fixed .scrollable {
+      overflow-x: visible;
+      overflow-y: visible;
+      padding-top: 2rem;
+
+    }
+
+    label {
+      perspective: 1000px;
+      transform-style: preserve-3d;
+      display: block;
+      width: 5rem;
+      height: 5rem;
+      cursor: pointer;
+    }
+
+    .card {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      transform-style: preserve-3d;
+      transition: all 600ms;
+     // z-index: 20;
+    }
+
+    .card div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      //background: #FFF;
+      text-align: center;
+      backface-visibility: hidden;
+      border-radius: 2px;
+    }
+
+    .card .back {
+      background: $highlight-color;
+      color: $text-dark;
+      //  transform: rotateY(180deg);
+    }
+
+    label:hover .card {
+      transform: translateZ(-100px) rotateY(-90deg);
+      // transform: rotateY(180deg);
+      box-shadow: 0 20px 20px rgba(50, 50, 50, .2);
+    }
+
+    input {
+     // display: none;
+     position: absolute;
+     opacity:0;
+     width:100%;
+     height:100%;
+    }
+
+    :focus + .card {
+      transform: translateZ(-100px) rotateY(-90deg);
+    }
+
+    label:hover :focus + .card {
+      transform: translateZ(-100px) rotateY(-90deg);
+      box-shadow: 0 20px 20px rgba(255, 255, 255, .2);
+    }
+
+    .back ul {
+      position: absolute;
+      right: 6rem;
+      padding: 0;
+      border-radius: 5px;
+
+    }
+
+    .back ul li {
+      font-size: 15px;
+      list-style-type: none;
+      display: none;
+      text-align: right;
+      border-right: 4px solid $highlight-color;
+      min-width: 7rem;
+      padding: .5rem;
+      outline: none;
+      background-color: rgba(10, 10, 10, 0.5)
+    }
+
+    :checked + .card ul li {
+      display: block;
+    }
+
+    .back {
+      transform: rotateY(90deg) translateZ(2.5rem);
+    }
+
+
+    .front {
+      transform: rotateY(0deg) translateZ(2.5rem);
+      background-color: $light-bg-color;
+    }
+
+
+  }
+
+
+
+
+  // ------------------------------------ sidebar end -------------------------------------------
+
+
+  ::ng-deep {
+    #logo img {
+      width: 5rem;
+    }
+
+    #outer-card {
+      position: relative;
+      background: rgb(1, 105, 131);
+      background: linear-gradient(323deg, rgba(1, 105, 131, 1) 22%, rgba(0, 198, 196, 1) 50%, rgba(1, 92, 122, 1) 86%);
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      border: none;
+
+    }
+
+    #inner-card {
+      border: none;
+      color: gray;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: transparent;
+      backdrop-filter: blur(.5rem);
+      box-shadow: 10px -10px 15px 0 rgba(0, 0, 0, 0.3);
+      border-radius: 5px;
+      position: relative;
+    //  z-index: 1;
+
+      //  width: 40rem;
+      margin: 2rem;
+      //padding: 2rem;
+
+    }
+
+    nb-layout-header nav {
+      justify-content: space-between !important;
+    }
+  }
+
+
+
+
+}
+
+@supports not (backdrop-filter: none) {
+  #inner-card {
+    background: rgba(150, 130, 150, 0.5);
+  }
+
+
+
+  nb-user {
+    font-family: 'Vazir FD';
+  }
+}
+
+// i {
+//   color:$highlight-color;
+// }
+::ng-deep nb-user .user-container .user-picture {
+  border-radius: 50%;
+}

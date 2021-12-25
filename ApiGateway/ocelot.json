@@ -1,0 +1,363 @@
+{
+  "Routes": [
+    //Events_API
+    {
+      "DownstreamPathTemplate": "/api/Events",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5012"
+        }
+      ],
+      "UpstreamPathTemplate": "/Events",
+      "UpstreamHttpMethod": [ "Get", "Post", "Options" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Events/{eId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5012"
+        }
+      ],
+      "UpstreamPathTemplate": "/Events/{eId}",
+      "UpstreamHttpMethod": [ "Get", "Put", "Options" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Events/landing",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5012"
+        }
+      ],
+      "UpstreamPathTemplate": "/EventsForLanding",
+      "UpstreamHttpMethod": [ "Get", "Options" ]
+    },
+    //Teams_API
+    {
+      "DownstreamPathTemplate": "/api/Teams",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5022"
+        }
+      ],
+      "UpstreamPathTemplate": "/Teams",
+      "UpstreamHttpMethod": [ "Get", "Post", "Options" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Teams/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5022"
+        }
+      ],
+      "UpstreamPathTemplate": "/Teams/{id}",
+      "UpstreamHttpMethod": [ "Get", "Put", "Options" ]
+    },
+    //Users_API
+    {
+      "DownstreamPathTemplate": "/api/Users/{identityUserId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5042"
+        }
+      ],
+      "UpstreamPathTemplate": "/Users/{identityUserId}",
+      "UpstreamHttpMethod": [ "Get", "Put", "Options" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Users/dropdown",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5042"
+        }
+      ],
+      "UpstreamPathTemplate": "/Users/dropdown",
+      "UpstreamHttpMethod": [ "Get", "Options" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Users/all",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5042"
+        }
+      ],
+      "UpstreamPathTemplate": "/Users/all",
+      "UpstreamHttpMethod": [ "Get", "Options" ]
+    },
+    //Skills_API
+    {
+      "DownstreamPathTemplate": "/api/Skills",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5042"
+        }
+      ],
+      "UpstreamPathTemplate": "/Skills",
+      "UpstreamHttpMethod": [ "Get", "Post", "Options" ]
+    },
+    //Auth_API
+    {
+      "DownstreamPathTemplate": "/api/Auth/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5032"
+        }
+      ],
+      "UpstreamPathTemplate": "/login",
+      "UpstreamHttpMethod": [ "Post", "Options" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Auth/register",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5032"
+        }
+      ],
+      "UpstreamPathTemplate": "/register",
+      "UpstreamHttpMethod": [ "Post", "Options" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Auth/phonenumberverify",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5032"
+        }
+      ],
+      "UpstreamPathTemplate": "/phonenumberverify",
+      "UpstreamHttpMethod": [ "Post", "Options" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Auth/setpassword",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5032"
+        }
+      ],
+      "UpstreamPathTemplate": "/setpassword",
+      "UpstreamHttpMethod": [ "Post", "Options" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Auth/changepassword",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5032"
+        }
+      ],
+      "UpstreamPathTemplate": "/changepassword",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Auth/forgetPassword",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5032"
+        }
+      ],
+      "UpstreamPathTemplate": "/forgetPassword",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    //FilesAPI
+    {
+      "DownstreamPathTemplate": "/api/Files/profilePicture/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5062"
+        }
+      ],
+      "UpstreamPathTemplate": "/profilePicture/{id}",
+      "UpstreamHttpMethod": [ "Get", "Options" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Files/TeamLogo/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5062"
+        }
+      ],
+      "UpstreamPathTemplate": "/teamLogo/{id}",
+      "UpstreamHttpMethod": [ "Get", "Options" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Files/EventBanner/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5062"
+        }
+      ],
+      "UpstreamPathTemplate": "/EventBanner/{id}",
+      "UpstreamHttpMethod": [ "Get", "Options" ]
+    },
+    // SpaceAPI
+    {
+      "DownstreamPathTemplate": "/api/Spaces",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5052"
+        }
+      ],
+      "UpstreamPathTemplate": "/Spaces",
+      "UpstreamHttpMethod": [ "Get", "Post", "Options" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Spaces/byId/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5052"
+        }
+      ],
+      "UpstreamPathTemplate": "/Spaces/byId/{id}",
+      "UpstreamHttpMethod": [ "Get", "Options" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Spaces/bySvgId/{svgId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5052"
+        }
+      ],
+      "UpstreamPathTemplate": "/Spaces/bySvgId/{svgId}",
+      "UpstreamHttpMethod": [ "Get", "Options" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Spaces/spaceTypes",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5052"
+        }
+      ],
+      "UpstreamPathTemplate": "/Spaces/spaceTypes",
+      "UpstreamHttpMethod": [ "Get", "Options" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Spaces/spaceTypesForReserve",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5052"
+        }
+      ],
+      "UpstreamPathTemplate": "/Spaces/spaceTypesForReserve",
+      "UpstreamHttpMethod": [ "Get", "Options" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Spaces/{spId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5052"
+        }
+      ],
+      "UpstreamPathTemplate": "/Spaces/{spId}",
+      "UpstreamHttpMethod": [ "Put" ]
+    },
+    // Reserve
+    {
+      "DownstreamPathTemplate": "/api/Reserve/payment",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5052"
+        }
+      ],
+      "UpstreamPathTemplate": "/Reserve/payment",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Reserve/userReservations/{userName}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5052"
+        }
+      ],
+      "UpstreamPathTemplate": "/userReservations/{userName}",
+      "UpstreamHttpMethod": [ "Get", "Options" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Reserve/userPayments/{userName}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5052"
+        }
+      ],
+      "UpstreamPathTemplate": "/userPayments/{userName}",
+      "UpstreamHttpMethod": [ "Get", "Options" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Reserve/spacesForReserve",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5052"
+        }
+      ],
+      "UpstreamPathTemplate": "/spacesForReserve",
+      "UpstreamHttpMethod": [ "Post", "Options" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Reserve/ZarinCallBack/{paymentId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5052"
+        }
+      ],
+      "UpstreamPathTemplate": "/ZarinCallBack/{paymentId}",
+      "querystring_params": [
+        "*"
+      ],
+      "UpstreamHttpMethod": [ "Get", "Options" ]
+    }
+  ]
+}

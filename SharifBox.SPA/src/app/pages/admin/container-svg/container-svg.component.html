@@ -1,0 +1,25 @@
+
+<div [ngSwitch]="parentSvgId">
+
+  <div class="row justify-content-center">
+    <div class="col-md-6 p-2">
+      <app-sidebar-svg (moveInClicked)="moveIn($event)" (moveOutClicked)="moveOut()" [resetter]="reset"
+        [model]="modelChanged"></app-sidebar-svg>
+    </div>
+  </div>
+
+  <div class="row justify-content-center" *ngSwitchCase="'svg_0'">
+    <app-area-svg (svgClicked)="getSelectedArea($event)"></app-area-svg>
+  </div>
+
+  <div class="row justify-content-center" *ngSwitchCase="'svg_1'">
+    <app-second-area-svg (svgClicked)="getSelectedArea($event)"></app-second-area-svg>
+  </div>
+
+  <div class="row justify-content-center" *ngSwitchCase="''">
+    <div class="col-12">
+      <app-parent-svg-first (svgClicked)="getSelectedArea($event)"></app-parent-svg-first>
+      <app-parent-svg-second (svgClicked)="getSelectedArea($event)"></app-parent-svg-second>
+    </div>
+  </div>
+</div>

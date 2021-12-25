@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+
+    <h3>تغییر گذرواژه</h3>
+    <form (ngSubmit)="submitPass()" [formGroup]="passwordForm" autocomplete="off">
+
+      <div class="row mx-3">
+        <app-input placeholder=" رمز عبور قدیم" type="password" label="رمز عبور قدیم" formControlName="currentPassword"></app-input>
+        <div class="d-flex justify-content-center"
+        *ngIf="passwordForm.controls.currentPassword.invalid && passwordForm.controls.currentPassword.touched">
+        <span *ngIf="passwordForm.controls.currentPassword.hasError('required')">
+          !لطفا پسورد قدیم خود را وارد کنید
+        </span>
+        <span *ngIf="passwordForm.controls.currentPassword.hasError('pattern')">رمز عبور فقط باید شامل عدد و حروف
+          باشد</span>
+      </div>
+  </div>
+
+  <div class="row mx-3">
+    <app-input placeholder="رمز عبور جدید" type="password" label="رمز عبور جدید" formControlName="newPassword"></app-input>
+    <div class="d-flex justify-content-center"
+    *ngIf="passwordForm.controls.newPassword.invalid && passwordForm.controls.newPassword.touched">
+    <span *ngIf="passwordForm.controls.newPassword.hasError('required')">
+      !لطفا پسورد جدید خود را وارد کنید
+    </span>
+    <span *ngIf="passwordForm.controls.newPassword.hasError('pattern')">رمز عبور فقط باید شامل عدد و حروف
+      باشد</span>
+  </div>
+</div>
+
+<div class="row mx-3">
+<app-input placeholder=" تکرار رمزعبور" type="password" label="تکرار رمزعبور" formControlName="passwordConfirm"></app-input>
+</div>
+
+
+      <app-btn label="ثبت"></app-btn>
+    </form>
+
+
+
+  </div>
+</div>
+

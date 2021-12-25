@@ -1,0 +1,39 @@
+diff --git a/node_modules/@nebular/theme/bundles/theme.umd.js b/node_modules/@nebular/theme/bundles/theme.umd.js
+index e83ea41..3d2e858 100644
+--- a/node_modules/@nebular/theme/bundles/theme.umd.js
++++ b/node_modules/@nebular/theme/bundles/theme.umd.js
+@@ -1057,7 +1057,7 @@ var NbOverlayContainerAdapter = /** @class */ (function (_super) {
+ var NbViewportRulerAdapter = /** @class */ (function (_super) {
+     tslib.__extends(NbViewportRulerAdapter, _super);
+     function NbViewportRulerAdapter(platform, ngZone, ruler, scroll) {
+-        var _this = _super.call(this, platform, ngZone) || this;
++        var _this = _super.call(this, platform, ngZone, document) || this;
+         _this.ruler = ruler;
+         _this.scroll = scroll;
+         return _this;
+diff --git a/node_modules/@nebular/theme/esm2015/components/cdk/adapter/viewport-ruler-adapter.js b/node_modules/@nebular/theme/esm2015/components/cdk/adapter/viewport-ruler-adapter.js
+index 2485b14..58884ad 100644
+--- a/node_modules/@nebular/theme/esm2015/components/cdk/adapter/viewport-ruler-adapter.js
++++ b/node_modules/@nebular/theme/esm2015/components/cdk/adapter/viewport-ruler-adapter.js
+@@ -6,7 +6,7 @@ import { NbLayoutRulerService } from '../../../services/ruler.service';
+ import { NbLayoutScrollService } from '../../../services/scroll.service';
+ export class NbViewportRulerAdapter extends ViewportRuler {
+     constructor(platform, ngZone, ruler, scroll) {
+-        super(platform, ngZone);
++        super(platform, ngZone, document);
+         this.ruler = ruler;
+         this.scroll = scroll;
+     }
+diff --git a/node_modules/@nebular/theme/fesm2015/index.js b/node_modules/@nebular/theme/fesm2015/index.js
+index 289ff0a..c34d9a2 100644
+--- a/node_modules/@nebular/theme/fesm2015/index.js
++++ b/node_modules/@nebular/theme/fesm2015/index.js
+@@ -959,7 +959,7 @@ NbOverlayContainerAdapter.decorators = [
+ 
+ class NbViewportRulerAdapter extends ViewportRuler {
+     constructor(platform, ngZone, ruler, scroll) {
+-        super(platform, ngZone);
++        super(platform, ngZone, document);
+         this.ruler = ruler;
+         this.scroll = scroll;
+     }

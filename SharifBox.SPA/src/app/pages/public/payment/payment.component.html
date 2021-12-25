@@ -1,0 +1,68 @@
+<div class="row">
+  <ul *ngIf="model">
+    <li>
+      <span>عنوان</span>
+      <span>{{model.title}}</span>
+    </li>
+    <li>
+      <span>نوع</span>
+      <span>{{model.typeString}}</span>
+    </li>
+    <li *ngIf="model.type==202 || model.type==203">
+      <span>ظرفیت</span>
+      <span>{{model.capacity}}</span>
+    </li>
+    <!-- <li *ngIf="model.type==0 || model.type==1 || model.type==4|| model.type==5">
+      <span>مساحت</span>
+      <span>{{model.area}}</span>
+    </li> -->
+    <li *ngIf="model.type==203">
+      <span>تعداد ویدیو پروژکتور</span>
+      <span>{{model.numOfVideoProjector}}</span>
+    </li>
+    <li *ngIf="model.type==202 || model.type==203">
+      <span> تعداد صندلی</span>
+      <span>{{model.numOfChairs}}</span>
+    </li>
+    <li *ngIf="model.type==203">
+      <span> تعداد میکروفون </span>
+      <span>{{model.numOfMicrophone}}</span>
+    </li>
+    <li>
+      <span> قیمت </span>
+      <span> {{model.amount | number}} تومان </span>
+    </li>
+  </ul>
+</div>
+
+<div class="row justify-content-center" *ngIf="model">
+  <div class="col-12 col-md-6 my-5 date-picker" >
+    <label>تاریخ شروع</label>
+    <input type="text"  [value]="model.startDate"  />
+  </div>
+
+  <div class="col-12 col-md-6 my-5 date-picker" *ngIf="model.type==201 || model.type==202">
+    <label>تاریخ پایان</label>
+    <input type="text" [value]="model.endDate"/>
+  </div>
+</div>
+
+
+<div class="row" *ngIf="model">
+  <div class="col-12 col-md-6 my-5 date-picker" *ngIf="model.type==200 || model.type==203">
+    <label>ساعت شروع</label>
+    <input type="text"  [value]="model.startTime"/>
+  </div>
+
+  <div class="col-12 col-md-6 my-5 date-picker" *ngIf="model.type==200 || model.type==203">
+    <label>ساعت پایان</label>
+    <input type="text" [value]="model.endTime"/>
+  </div>
+</div>
+
+
+
+
+<div class="row">
+  <app-btn label="پرداخت" (click)="makePayment()"></app-btn>
+</div>

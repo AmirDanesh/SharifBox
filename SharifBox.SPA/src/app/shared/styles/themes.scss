@@ -1,0 +1,29 @@
+@import '~@nebular/theme/styles/theming';
+@import '~@nebular/theme/styles/themes/default';
+@import '~@nebular/theme/styles/themes/dark';
+
+$nb-enable-css-custom-properties: true;
+
+$nb-themes: nb-register-theme(( // text
+    font-family-primary: unquote('Vazir, sans-serif'),
+    font-family-secondary: unquote('Vazir, sans-serif'),
+  ), default, default);
+
+$nb-themes: nb-register-theme(( // text
+    font-family-primary: unquote('Vazir, sans-serif'),
+    font-family-secondary: unquote('Vazir, sans-serif'),
+    // --------------------------- header -----------------------------------------
+    header-background-color:#595879,
+    // --------------------------- sidebar -----------------------------------------
+    sidebar-padding: .1rem,
+    sidebar-width-compact: 5rem,
+    sidebar-background-color:#595879,
+
+    // --------------------------- card -----------------------------------------
+
+    // card-background-color: #0C4160,
+    // --------------------------- tab -----------------------------------------
+
+    // tabset-background-color: #0C4160,
+
+  ), dark, dark);

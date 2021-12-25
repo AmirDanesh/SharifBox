@@ -1,0 +1,67 @@
+
+
+<form (ngSubmit)="submitTeam()" [formGroup]="teamForm" class="d-flex align-items-center flex-column">
+  <div class="wrapper">
+    <label class="customUpload">
+      <img [src]="teamForm.get('teamLogo')?.value" [alt]="teamForm.value.name">
+      <input type="file" accept="image/*" (change)="showPreview($event)" hidden />
+    </label>
+  </div>
+
+  <div class="col-md-6 col-12 d-flex align-items-center flex-column p-3">
+
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <app-input placeholder="عنوان" type="text" label="عنوان" formControlName="name"></app-input>
+        <div class="error d-flex justify-content-center"
+          *ngIf="teamForm.controls.name.invalid && teamForm.controls.name.touched">
+          <span *ngIf="teamForm.controls.name.hasError('required')">
+            عنوان را وارد کنید
+          </span>
+        </div>
+      </div>
+
+
+      <div class="col-12 col-md-6">
+        <app-input placeholder="حوزه فعالیت" type="text" label="حوزه فعالیت" formControlName="activityField">
+        </app-input>
+      </div>
+    </div>
+
+    <div class="container my-3">
+      <label>مسئول تیم</label>
+      <ng-select formControlName="managerUserId" [items]="userDropDown" [hideSelected]="true" bindLabel="name"
+        bindValue="id" [dropdownPosition]="'top'">
+      </ng-select>
+    </div>
+    <!-- <p>{{teamForm.value | json}}</p> -->
+
+    <div class="error d-flex justify-content-center"
+      *ngIf="teamForm.controls.managerUserId.touched && teamForm.controls.managerUserId.invalid">
+      <span *ngIf="teamForm.controls.managerUserId.hasError('required')">
+        مسئول تیم را وارد کنید
+      </span>
+    </div>
+
+    <div class="container my-3">
+      <label>اعضای تیم</label>
+      <ng-select [items]="userDropDown" [clearSearchOnAdd]=true formControlName="selectedUser" [hideSelected]="true"
+        bindLabel="name" bindValue="id" [dropdownPosition]="'top'" (change)="addUserdd($event)">
+      </ng-select>
+    </div>
+
+    <div class="row">
+      <div *ngFor="let user of teamUsers" class="col-md-6">
+        <app-user-card class="d-flex justify-content-center m-4" (delete)="onDelete($event)" text={{user.name}}
+          imageUrl={{userImageUrl(user.id)}} uniqueId={{user.id}}></app-user-card>
+      </div>ّ
+    </div>
+
+
+
+ <app-input placeholder="توضیحات" type="text" label="توضیحات" formControlName="description"></app-input>
+
+    <app-btn label="ثبت"></app-btn>
+  </div>
+
+</form>

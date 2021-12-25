@@ -1,0 +1,15 @@
+li{
+  list-style-type: none;
+  padding: 10px 0 15px;
+  margin: 0;
+  text-align: right;
+  width: 100%;
+
+}
+
+input{
+  width: 100%;
+}
+ li span:nth-child(2){
+   float: left;
+ }

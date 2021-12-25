@@ -1,0 +1,21 @@
+@import "../../../shared/styles/variables/_variables.scss";
+
+
+.inputWrapper {
+  cursor: default;
+  margin: 2rem 0;
+  outline: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background: transparent;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  border: none;
+  text-align: center;
+  color: $text-light;
+  font-family: 'Vazir FD';
+
+}
+label{
+  color: $text-light;
+}

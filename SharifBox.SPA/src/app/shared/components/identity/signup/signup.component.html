@@ -1,0 +1,28 @@
+<div class="content">
+
+  <h2 appMpInput>ثبت نام</h2>
+  <form (ngSubmit)="signup()" [formGroup]="signupForm" autocomplete="off">
+
+    <app-input placeholder="نام" type="text" label="نام" formControlName="firstName"></app-input>
+    <div class="d-flex justify-content-center" *ngIf="signupForm.controls.firstName.invalid && signupForm.controls.firstName.touched">
+      <span *ngIf="signupForm.controls.firstName.hasError('required')">نام خود را وارد کنید</span>
+      <span *ngIf="signupForm.controls.firstName.hasError('pattern')">نام کاربری فقط شامل حروف باشد</span>
+    </div>
+
+    <app-input placeholder="نام خانوادگی" type="text" label="نام خانوادگی" formControlName="lastName"></app-input>
+    <div class="d-flex justify-content-center" *ngIf="signupForm.controls.lastName.invalid && signupForm.controls.lastName.touched">
+      <span *ngIf="signupForm.controls.lastName.hasError('required')">نام خانوادگی خود را وارد کنید</span>
+      <span *ngIf="signupForm.controls.lastName.hasError('pattern')">نام خانوادگی فقط شامل حروف باشد</span>
+    </div>
+
+    <app-input placeholder="شماره تلفن" type="tel" label="شماره تلفن" formControlName="phoneNumber"></app-input>
+    <div class="d-flex justify-content-center" *ngIf="signupForm.controls.phoneNumber.invalid && signupForm.controls.phoneNumber.touched">
+      <span *ngIf="signupForm.controls.phoneNumber.hasError('required')">شماره ی نلفن همراه خود را وارد
+        کنید</span>
+      <span *ngIf="signupForm.controls.phoneNumber.hasError('pattern')">09xxxxxxxxx شماره باید </span>
+    </div>
+
+    <app-btn label="ثبت"></app-btn>
+
+  </form>
+</div>

@@ -1,0 +1,55 @@
+<div class="row p-3">
+<form [formGroup]="areaForm" (ngSubmit)="submitArea()">
+
+
+  <app-input placeholder="عنوان " type="text" label="عنوان" formControlName="title"></app-input>
+  <!-- {{areaForm.value| json}} -->
+  <div class="error d-flex justify-content-center"
+    *ngIf="areaForm.controls.title.invalid && areaForm.controls.title.touched">
+    <span *ngIf="areaForm.controls.title.hasError('required')">
+      عنوان را وارد کنید
+    </span>
+
+  </div>
+  <app-input placeholder=" توضیحات" type="text" label="توضیحات" formControlName="description"></app-input>
+
+  <div class="mt-3">
+    <label>نوع</label>
+    <ng-select formControlName="type" [items]="typeDropDown" [hideSelected]="true" bindLabel="name" bindValue="id"
+      [dropdownPosition]="'top'">
+    </ng-select>
+    <div class="error d-flex justify-content-center"
+      *ngIf="areaForm.controls.type.invalid && areaForm.controls.type.touched">
+      <span *ngIf="areaForm.controls.type.hasError('required')">
+        نوع را وارد کنید
+      </span>
+    </div>
+  </div>
+
+
+  <app-input type="text" placeholder=" توضیحات" label="ظرفیت" formControlName="capacity"
+    *ngIf="spaceType == 202 || spaceType == 203">
+  </app-input>
+
+  <app-input type="text" placeholder=" مساحت" label="مساحت" formControlName="area"
+    *ngIf="spaceType == 202 || spaceType == 203"></app-input>
+
+  <app-input type="text" placeholder=" تعداد ویدیو پروژکتور" label="تعداد ویدیو پروژکتور"
+    formControlName="numOfVideoProjector" *ngIf="spaceType == 203">
+  </app-input>
+
+  <app-input type="text" placeholder=" تعداد صندلی" label="تعداد صندلی" formControlName="numOfChairs"
+    *ngIf="spaceType == 202"></app-input>
+
+  <app-input type="text" placeholder=" تعداد میکروفون" label="تعداد میکروفون" formControlName="numOfMicrophone"
+    *ngIf="spaceType == 203"></app-input>
+  <div class="row justify-content-senter">
+      <app-btn label="ثبت"></app-btn>
+      <app-btn type="button" (click)="moveIn()" label="ورود" *ngIf="spaceType == 0 || spaceType == 1"></app-btn>
+      <app-btn type="button" (click)="moveOut($event)" label="خروج" *ngIf="spaceType == 200 || spaceType == 201 || spaceType == 202 || spaceType == 203"></app-btn>
+  </div>
+
+
+</form>
+</div>
+

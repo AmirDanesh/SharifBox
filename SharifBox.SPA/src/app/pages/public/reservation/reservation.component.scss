@@ -1,0 +1,101 @@
+@import "../../../shared/styles/_override";
+@import "../../../shared/styles/variables/variables";
+
+label{
+  color:$text-light;
+}
+input{
+  width: 100%;
+}
+
+::ng-deep {
+  .mat-step-header{
+    .mat-step-icon-selected{
+  background-color: $highlight-color;
+    }
+    .mat-step-icon-state-done{
+  background-color: $highlight-color;
+    }
+    .mat-step-icon-state-edit{
+  background-color: $highlight-color;
+    }
+  }
+
+
+
+  .timepicker__header{
+    direction: ltr;
+    display: flex;
+    justify-content: space-around;
+  }
+  .timepicker__main-content div.timepicker__actions{
+    direction: ltr;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  ngx-material-timepicker .clock-face .clock-face__container{
+    margin-left: 100px;
+  }
+
+}
+
+input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  color: $text-light;
+  text-align: center;
+
+  &:focus {
+    outline: none;
+    border-width: 3px;
+    border-image: linear-gradient(to right, $gradient-start, $gradient-end);
+    border-image-slice: 1;
+
+  }
+
+//  .ng-invalid.ng-touched{
+//     border-bottom: 1px solid $error;
+//     }
+ }
+
+
+
+
+li{
+  list-style-type: none;
+  padding: 10px 0 15px;
+  margin: 0;
+  text-align: right;
+  width: 100%;
+}
+
+input{
+  width: 100%;
+}
+ li span:nth-child(2){
+   float: left;
+ }
+
+
+ ::ng-deep mat-horizontal-stepper.mat-stepper-horizontal
+ {
+   //direction: ltr;
+   background-color: transparent;
+   font-family: 'Vazir FD';
+  .mat-horizontal-stepper-header-container{
+   direction: ltr;
+
+  }
+ }
+
+
+
+
+span{
+  color: $text-light;
+  cursor: pointer;
+  margin-top: 1rem;
+  display: inline-block;
+}

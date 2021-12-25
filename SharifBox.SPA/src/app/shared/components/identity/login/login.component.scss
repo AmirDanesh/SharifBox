@@ -1,0 +1,7 @@
+@import "../../../styles/variables/_variables.scss";
+::ng-deep .mat-dialog-container{
+  background: $gray;
+}
+span{
+  color: $text-light;
+}

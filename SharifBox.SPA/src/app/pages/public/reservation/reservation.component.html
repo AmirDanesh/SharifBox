@@ -1,0 +1,308 @@
+<div class="row justify-content-center" >
+  <div class="col-12">
+    <mat-horizontal-stepper linear labelPosition="bottom" #stepper>
+      <mat-step [stepControl]="areaForm" >
+        <ng-template matStepperIcon="edit">
+          <i class="fad fa-check-square"></i>
+        </ng-template>
+        <ng-template matStepLabel>انتخاب تاریخ و فضا</ng-template>
+
+        <form [formGroup]="areaForm" (ngSubmit)="submitAreaForm()" [ngSwitch]="areaForm.controls.type.value">
+
+          <div class="row justify-content-center">
+
+            <div class="col-sm-8 col-md-6 col-lg-4 col-12 mt-5">
+              <label>فضای انتخابی</label>
+              <ng-select
+              (change)="submitAreaForm()"
+              formControlName="type"
+              [items]="typeDropDown"
+              [hideSelected]="true"
+              bindLabel="name"
+              bindValue="id"
+              [dropdownPosition]="'top'">
+              </ng-select>
+            </div>
+
+          </div>
+
+          <div class="row justify-content-evenly">
+
+            <div class="col-sm-8 col-md-6 col-lg-4 col-12 mt-5 date-picker">
+              <label>تاریخ شروع</label>
+              <input type="text" formControlName="startDate" #datepickerInput1 (input)="submitAreaForm()"/>
+              <ng-persian-datepicker
+              [dateInitValue]=true
+              [uiYearView]=false
+              [uiMonthView]=false
+              [input]="datepickerInput1"
+              dateFormat="jYYYY/jMM/jDD"
+              [timeEnable]="false">
+              </ng-persian-datepicker>
+            </div>
+
+            <div *appSwitchCase="[201,202]" class="col-sm-8 col-md-6 col-lg-4 col-12 mt-5 date-picker">
+              <label>تاریخ پایان</label>
+              <input type="text" formControlName="endDate" #datepickerInput2 (input)="submitAreaForm()" />
+              <ng-persian-datepicker
+              [uiYearView]=false
+              [uiMonthView]=false
+              [input]="datepickerInput2"
+              dateFormat="jYYYY/jMM/jDD"
+              [timeEnable]="false">
+              </ng-persian-datepicker>
+            </div>
+
+          </div>
+          <div *appSwitchCase="[200, 203]">
+            <div class="row justify-content-center">
+
+
+              <div class="col-sm-8 col-md-6 col-lg-4 col-12 mt-5">
+                <label>ساعت شروع</label>
+                <div class="custom-buttons-example">
+                  <input aria-label="Custom buttons"
+                   [ngxTimepicker]="timepickerWithButtons1"
+                    readonly
+                    formControlName="startTime">
+                  <ngx-material-timepicker
+                  #timepickerWithButtons1
+                  [cancelBtnTmpl]="cancelBtn"
+                  [confirmBtnTmpl]="confirmBtn"></ngx-material-timepicker>
+                  <ng-template #cancelBtn>
+                    <app-btn label="خروج"></app-btn>
+                  </ng-template>
+                  <ng-template #confirmBtn>
+                    <app-btn label="تایید"></app-btn>
+                  </ng-template>
+                </div>
+              </div>
+
+              <div class="col-sm-8 col-md-6 col-lg-4 col-12 mt-5">
+                <label>ساعت پایان</label>
+                <div class="custom-buttons-example">
+                  <input aria-label="Custom buttons"
+                   [ngxTimepicker]="timepickerWithButtons2"
+                    readonly
+                    formControlName="endTime">
+                  <ngx-material-timepicker
+                  #timepickerWithButtons2
+                  [cancelBtnTmpl]="cancelBtn"
+                  [confirmBtnTmpl]="confirmBtn"></ngx-material-timepicker>
+                  <ng-template #cancelBtn>
+                    <app-btn label="خروج"></app-btn>
+                  </ng-template>
+                  <ng-template #confirmBtn>
+                    <app-btn label="تایید"></app-btn>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div *appSwitchCase="[200, 203]">
+            <div class="row justify-content-center">
+
+
+              <div class="col-sm-8 col-md-6 col-lg-4 col-12 mt-5">
+                <label>ساعت شروع</label>
+                <div>
+                 <ngx-timepicker-field
+                 [format]="24"
+                 formControlName="startTime"
+                 [cancelBtnTmpl]="cancelBtn"
+                 [confirmBtnTmpl]="confirmBtn"
+                 [defaultTime]="currTime"></ngx-timepicker-field>
+                  <ng-template #cancelBtn>
+                    <app-btn label="خروج"></app-btn>
+                  </ng-template>
+                  <ng-template #confirmBtn>
+                    <app-btn label="تایید"></app-btn>
+                  </ng-template>
+                </div>
+              </div>
+
+              <div class="col-sm-8 col-md-6 col-lg-4 col-12 mt-5">
+                <label>ساعت پایان</label>
+                <div>
+                  <ngx-timepicker-field
+                  [format]="24"
+                  formControlName="endTime"
+                  [cancelBtnTmpl]="cancelBtn"
+                  [confirmBtnTmpl]="confirmBtn"
+                  [defaultTime]="endTime"
+                  ></ngx-timepicker-field>
+                   <ng-template #cancelBtn>
+                     <app-btn label="خروج"></app-btn>
+                   </ng-template>
+                   <ng-template #confirmBtn>
+                     <app-btn label="تایید"></app-btn>
+                   </ng-template>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <!-- <app-btn label="جستجو"></app-btn> -->
+        </form>
+
+        <div class="row m-5 justify-content-center">
+          <div class="col-md-12">
+            <ng2-smart-table [source]="source" [settings]="settings" (custom)="onEdit($event)"></ng2-smart-table>
+          </div>
+        </div>
+      </mat-step>
+
+      <!-- login -->
+      <mat-step *ngIf="!user && !showRegister"  [stepControl]="loginForm">
+        <ng-template matStepperIcon="edit">
+          <i class="fad fa-check-square"></i>
+        </ng-template>
+        <ng-template matStepLabel> ورود کاربر</ng-template>
+        <!-- <app-login (next)="nextStep()"></app-login> -->
+        <h2>ورود</h2>
+
+
+        <form (ngSubmit)="login()" [formGroup]="loginForm">
+          <div class="row justify-content-center">
+            <div class="col-sm-8 col-md-6 col-12 my-2">
+              <app-input type="tel" placeholder="تلفن همراه" formControlName="username" label="تلفن همراه"></app-input>
+              <div class="d-flex justify-content-center"
+                *ngIf="loginForm.controls.username.invalid && loginForm.controls.username.touched">
+                <span *ngIf="loginForm.controls.username.hasError('required')">
+                  شماره ی همراه خود را وارد کنید
+                </span>
+                <span class="d-flex justify-content-center" *ngIf="loginForm.controls.username.hasError('pattern')">
+                  09xx xxx xxxx!لطفا شماره ی همراه خود را مانند نمونه وارد کنید
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-sm-8 col-md-6 col-12 my-2">
+              <app-input type="password" placeholder="رمز عبور " label="رمز عبور" formControlName="password">
+              </app-input>
+              <div class="d-flex justify-content-center"
+                *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched">
+                <span *ngIf="loginForm.controls.password.hasError('required')">
+                  !لطفا پسورد خود را وارد کنید
+                </span>
+                <span *ngIf="loginForm.controls.password.hasError('pattern')">رمز عبور فقط باید شامل عدد و حروف
+                  باشد</span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <app-btn class="col-sm-12 col-6" label="ورود"></app-btn>
+            <div class="col-sm-12 col-6">
+
+              <span (click)="toggleRegister()"> ورود کاربر جدید </span>
+            </div>
+          </div>
+
+        </form>
+
+
+
+
+
+
+      </mat-step>
+
+      <!-- signin -->
+      <mat-step [stepControl]="signupForm" *ngIf="!user && showRegister">
+        <ng-template matStepperIcon="edit">
+          <i class="fad fa-check-square"></i>
+        </ng-template>
+        <ng-template matStepLabel> ثبت نام</ng-template>
+        <div class="content">
+
+          <h2 appMpInput>ثبت نام</h2>
+          <form (ngSubmit)="signup()" [formGroup]="signupForm" autocomplete="off">
+
+            <div class="row justify-content-center">
+              <div class="col-sm-8 col-md-6 col-4 my-2">
+
+                <app-input placeholder="نام" type="text" label="نام" formControlName="firstName"></app-input>
+                <div class="d-flex justify-content-center"
+                  *ngIf="signupForm.controls.firstName.invalid && signupForm.controls.firstName.touched">
+                  <span *ngIf="signupForm.controls.firstName.hasError('required')">نام خود را وارد کنید</span>
+                  <span *ngIf="signupForm.controls.firstName.hasError('pattern')">نام کاربری فقط شامل حروف باشد</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row justify-content-center">
+              <div class="col-sm-8 col-md-6 col-4 my-2">
+                <app-input placeholder="نام خانوادگی" type="text" label="نام خانوادگی" formControlName="lastName">
+                </app-input>
+                <div class="d-flex justify-content-center"
+                  *ngIf="signupForm.controls.lastName.invalid && signupForm.controls.lastName.touched">
+                  <span *ngIf="signupForm.controls.lastName.hasError('required')">نام خانوادگی خود را وارد کنید</span>
+                  <span *ngIf="signupForm.controls.lastName.hasError('pattern')">نام خانوادگی فقط شامل حروف باشد</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row justify-content-center">
+              <div class="col-sm-8 col-md-6 col-4 my-2">
+                <app-input placeholder="شماره تلفن" type="tel" label="شماره تلفن" formControlName="phoneNumber">
+                </app-input>
+                <div class="d-flex justify-content-center"
+                  *ngIf="signupForm.controls.phoneNumber.invalid && signupForm.controls.phoneNumber.touched">
+                  <span *ngIf="signupForm.controls.phoneNumber.hasError('required')">شماره ی نلفن همراه خود را وارد
+                    کنید</span>
+                  <span *ngIf="signupForm.controls.phoneNumber.hasError('pattern')">09xxxxxxxxx شماره باید </span>
+                </div>
+              </div>
+            </div>
+            <app-btn label="ثبت"></app-btn>
+            <div class="col-sm-12 col-6">
+              <span (click)="toggleRegister()"> ورود </span>
+            </div>
+          </form>
+        </div>
+
+      </mat-step>
+
+      <!-- code -->
+      <mat-step *ngIf="!user && showRegister">
+        <ng-template matStepperIcon="edit">
+          <i class="fad fa-check-square"></i>
+        </ng-template>
+        <ng-template matStepLabel> کد ارسال شده</ng-template>
+        <form (ngSubmit)="submitCode()" [formGroup]="codeForm" autocomplete="off">
+          <div class="row justify-content-center">
+            <div class="col-sm-8 col-md-6 col-4 my-2">
+              <app-input placeholder="کدارسال شده" type="text" label="کدارسال شده" formControlName="verificationCode">
+              </app-input>
+            </div>
+          </div>
+          <app-btn label="ثبت"></app-btn>
+        </form>
+
+      </mat-step>
+
+      <!-- payment -->
+      <mat-step>
+        <ng-template matStepperIcon="edit">
+          <i class="fad fa-check-square"></i>
+        </ng-template>
+        <ng-template matStepLabel> پیش فاکتور</ng-template>
+        <app-payment [model]="model"></app-payment>
+      </mat-step>
+
+      <!-- <mat-step>
+        <ng-template matStepperIcon="edit">
+          <i class="fad fa-check-square"></i>
+        </ng-template>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>عملیات با موفقیت انجام شد</p>
+        <div>
+          <button mat-button matStepperPrevious>بازگشت به مرحله قبل</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+      </mat-step> -->
+    </mat-horizontal-stepper>
+
+  </div>
+</div>

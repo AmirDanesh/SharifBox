@@ -1,0 +1,224 @@
+
+<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button> -->
+<mat-horizontal-stepper linear labelPosition="bottom" #stepper>
+  <!-- date -->
+  <mat-step>
+    <ng-template matStepperIcon="create">
+         <i class="fad fa-edit"></i>
+    </ng-template>
+    <ng-template matStepLabel>انتخاب تاریخ</ng-template>
+    <form (ngSubmit)="reserveDate()" class="d-flex justify-content-center align-items-center flex-column">
+
+      <div class="col-12 col-md-6 my-5 date-picker">
+
+        <label>تاریخ شروع</label>
+
+        <input type="text" #datepickerInput1 [(ngModel)]="reserveModel.startDate" name="startDate" autocomplete="off" />
+
+        <ng-persian-datepicker [input]="datepickerInput1" dateFormat="jYYYY/jMM/jDD" [timeEnable]="false">
+        </ng-persian-datepicker>
+
+      </div>
+
+      <div class="col-12 col-md-6 my-5 date-picker">
+        <label>تاریخ پایان</label>
+
+        <input type="text" #datepickerInput2 [(ngModel)]="reserveModel.endDate" name="endDate" autocomplete="off" />
+        <ng-persian-datepicker [input]="datepickerInput2" dateFormat="jYYYY/jMM/jDD" [timeEnable]="false">
+        </ng-persian-datepicker>
+
+      </div>
+
+      <div class="row">
+        <app-btn label="ثبت"></app-btn>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- area -->
+  <mat-step>
+    <ng-template matStepperIcon="edit">
+      <i class="fad fa-check-square"></i>
+ </ng-template>
+    <ng-template matStepLabel>انتخاب فضا</ng-template>
+
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <app-area-svg [data]='data' (svgClicked)="getSelectedArea($event)"></app-area-svg>
+      </div>
+
+      <div class="col-12 col-md-6">
+
+        <div class="row" *ngIf="model">
+          <ul>
+            <li>
+              <span>عنوان</span>
+              <span>{{model.title}}</span>
+            </li>
+            <li>
+              <span>توضیحات</span>
+              <span>{{model.description}}</span>
+            </li>
+            <li>
+              <span>نوع</span>
+              <span>{{model.typeString}}</span>
+            </li>
+            <li *ngIf="model.type==4 || model.type==5">
+              <span>ظرفیت</span>
+              <span>{{model.capacity}}</span>
+            </li>
+            <li *ngIf="model.type==0 || model.type==1 || model.type==4|| model.type==5">
+              <span>مساحت</span>
+              <span>{{model.area}}</span>
+            </li>
+            <li *ngIf="model.type==5">
+              <span>تعداد ویدیو پروژکتور</span>
+              <span>{{model.numOfVideoProjector}}</span>
+            </li>
+            <li *ngIf="model.type==4">
+              <span> تعداد صندلی</span>
+              <span>{{model.numOfChairs}}</span>
+            </li>
+            <li *ngIf="model.type==5">
+              <span> تعداد میکروفون </span>
+              <span>{{model.numOfMicrophone}}</span>
+            </li>
+
+          </ul>
+
+        </div>
+      </div>
+
+
+      <div class="row">
+        <app-btn (click)="reserveArea()" label="ثبت"></app-btn>
+      </div>
+    </div>
+<!--
+    <div>
+      <button mat-button matStepperNext>Next</button>
+    </div> -->
+  </mat-step>
+
+  <!-- login -->
+  <mat-step  *ngIf="!user">
+    <ng-template matStepperIcon="edit">
+      <i class="fad fa-check-square"></i>
+ </ng-template>
+    <ng-template matStepLabel>ورود</ng-template>
+    <!-- <app-login (next)="nextStep()"></app-login> -->
+    <h2>ورود</h2>
+
+
+    <form (ngSubmit)="login()" [formGroup]="loginForm">
+
+      <app-input type="tel" placeholder="تلفن همراه" formControlName="username" label="تلفن همراه"></app-input>
+      <div class="d-flex justify-content-center"
+        *ngIf="loginForm.controls.username.invalid && loginForm.controls.username.touched">
+        <span *ngIf="loginForm.controls.username.hasError('required')">
+          شماره ی همراه خود را وارد کنید
+        </span>
+        <span class="d-flex justify-content-center" *ngIf="loginForm.controls.username.hasError('pattern')">
+          09xx xxx xxxx!لطفا شماره ی همراه خود را مانند نمونه وارد کنید
+        </span>
+      </div>
+      <app-input type="password" placeholder="رمز عبور " label="رمز عبور" formControlName="password">
+      </app-input>
+      <div class="d-flex justify-content-center"
+        *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched">
+        <span *ngIf="loginForm.controls.password.hasError('required')">
+          !لطفا پسورد خود را وارد کنید
+        </span>
+        <span *ngIf="loginForm.controls.password.hasError('pattern')">رمز عبور فقط باید شامل عدد و حروف
+          باشد</span>
+      </div>
+      <div class="row">
+        <app-btn class="col-sm-12 col-6" label="ورود"></app-btn>
+        <div class="col-sm-12 col-6">
+
+          <span (click)="nextStep()"> ورود کاربر جدید </span>
+        </div>
+      </div>
+
+    </form>
+
+
+
+
+
+
+  </mat-step>
+
+  <!-- signin -->
+  <mat-step [stepControl]="signupForm"  *ngIf="!user">
+    <ng-template matStepperIcon="edit">
+      <i class="fad fa-check-square"></i>
+ </ng-template>
+    <ng-template matStepLabel> ثبت نام</ng-template>
+    <div class="content">
+
+      <h2 appMpInput>ثبت نام</h2>
+      <form (ngSubmit)="signup()" [formGroup]="signupForm" autocomplete="off">
+
+        <app-input placeholder="نام" type="text" label="نام" formControlName="firstName"></app-input>
+        <div class="d-flex justify-content-center" *ngIf="signupForm.controls.firstName.invalid && signupForm.controls.firstName.touched">
+          <span *ngIf="signupForm.controls.firstName.hasError('required')">نام خود را وارد کنید</span>
+          <span *ngIf="signupForm.controls.firstName.hasError('pattern')">نام کاربری فقط شامل حروف باشد</span>
+        </div>
+
+        <app-input placeholder="نام خانوادگی" type="text" label="نام خانوادگی" formControlName="lastName"></app-input>
+        <div class="d-flex justify-content-center" *ngIf="signupForm.controls.lastName.invalid && signupForm.controls.lastName.touched">
+          <span *ngIf="signupForm.controls.lastName.hasError('required')">نام خانوادگی خود را وارد کنید</span>
+          <span *ngIf="signupForm.controls.lastName.hasError('pattern')">نام خانوادگی فقط شامل حروف باشد</span>
+        </div>
+
+        <app-input placeholder="شماره تلفن" type="tel" label="شماره تلفن" formControlName="phoneNumber"></app-input>
+        <div class="d-flex justify-content-center" *ngIf="signupForm.controls.phoneNumber.invalid && signupForm.controls.phoneNumber.touched">
+          <span *ngIf="signupForm.controls.phoneNumber.hasError('required')">شماره ی نلفن همراه خود را وارد
+            کنید</span>
+          <span *ngIf="signupForm.controls.phoneNumber.hasError('pattern')">09xxxxxxxxx شماره باید </span>
+        </div>
+
+        <app-btn label="ثبت"></app-btn>
+
+      </form>
+    </div>
+
+  </mat-step>
+
+  <!-- code -->
+  <mat-step  *ngIf="!user">
+    <ng-template matStepperIcon="edit">
+      <i class="fad fa-check-square"></i>
+ </ng-template>
+    <ng-template matStepLabel> کد ارسال شده</ng-template>
+    <form (ngSubmit)="submitCode()" [formGroup]="codeForm" autocomplete="off">
+      <app-input placeholder="کدارسال شده" type="text" label="کدارسال شده" formControlName="verificationCode"></app-input>
+      <app-btn label="ثبت"></app-btn>
+    </form>
+
+  </mat-step>
+
+  <!-- payment -->
+  <mat-step >
+    <ng-template matStepperIcon="edit">
+      <i class="fad fa-check-square"></i>
+ </ng-template>
+    <ng-template matStepLabel> پیش فاکتور</ng-template>
+   <app-payment [model]="invoiceModel"></app-payment>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepperIcon="edit">
+      <i class="fad fa-check-square"></i>
+ </ng-template>
+    <!-- <ng-template matStepLabel>Done</ng-template> -->
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

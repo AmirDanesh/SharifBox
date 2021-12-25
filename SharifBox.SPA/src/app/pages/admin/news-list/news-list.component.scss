@@ -1,0 +1,102 @@
+@import "../../../shared/styles/variables/_variables.scss";
+@import "../../../shared/styles/override";
+
+
+
+// ::ng-deep ng2-smart-table {
+
+
+//   .ng2-smart-actions ng2-st-tbody-edit-delete,
+//   ng2-smart-table .ng2-smart-actions ng2-st-tbody-create-cancel,
+//   ng2-smart-table .ng2-smart-actions ng2-st-actions {
+//     display: none;
+//   }
+
+//   th.ng2-smart-actions-title-add a {
+
+//     background-color: transparent;
+
+//     :hover {
+//       background-color: transparent;
+//     }
+
+//   }
+
+//   input {
+//     background: transparent;
+//     border: none;
+//     text-align: center;
+
+//     &:focus {
+//       outline: none;
+//     }
+
+//   }
+
+//   td {
+//     background: transparent;
+//     border: none;
+//     outline: none;
+
+//     &:focus {
+//       outline: none;
+//     }
+//   }
+
+//   th {
+//     &:focus {
+//       outline: none;
+//     }
+//   }
+
+//   tbody {
+//     background: linear-gradient(to right, $gradient-start 0%, $gradient-end 100%);
+//   }
+
+//   .ng2-smart-actions a.ng2-smart-action {
+//     font-size: 1rem !important;
+//   }
+
+
+//   nav.ng2-smart-pagination-nav {
+//     .ng2-smart-pagination .page-item.disabled .page-link {
+//       color: $text-light;
+
+//       :hover {
+//         color: $highlight-color;
+
+//       }
+
+//       :hover {
+//         color: $highlight-color;
+
+//       }
+//     }
+
+//     .pagination li a {
+//       color: $text-light;
+
+//       :hover {
+//         color: $highlight-color;
+
+//       }
+//     }
+
+//   }
+
+
+
+//   ng2-smart-table-pager {
+//     justify-content: center !important;
+
+
+//   }
+
+// }
+
+
+//  @media all and (max-width: 400px) {
+//   :host ::ng-deep ng2-smart-table {
+//   background-color: red;
+//   }
+// }

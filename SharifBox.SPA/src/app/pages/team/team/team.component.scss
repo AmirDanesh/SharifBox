@@ -1,0 +1,32 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "../../../shared/styles/variables/_variables.scss";
+@import "../../../shared/styles/_override.scss";
+
+
+.wrapper {
+  background: $light-bg-color;
+  border-radius: 5px 5px 0 0;
+  width: 100%;
+  .customUpload {
+    img {
+      border-radius: 50%;
+      width: 10rem;
+      height: 10rem;
+    }
+  }
+}
+
+label {
+  color: $text-light;
+}
+
+::ng-deep .error span {
+  font-size: .7em;
+  line-height: 2rem;
+  color: $error;
+
+}
+
+.container {
+  width: 100%;
+}

@@ -1,0 +1,375 @@
+@import "../../shared/styles/variables/_variables.scss";
+@import "../../shared/styles/_override.scss";
+@import '../../shared/styles/themes.scss';
+
+@media only screen and (max-width:499px) {
+  .wrapper {
+    --prism-height: 90vw;
+    --prism-length: 90vw;
+    --prism-depth: 90vw;
+  }
+}
+@media only screen and (min-width:500px) and (max-width:749px ) and (orientation: portrait) {
+  .wrapper {
+    --prism-height: 65vw;
+    --prism-length: 65vw;
+    --prism-depth: 65vw;
+  }
+}
+@media only screen and (min-width:500px) and (max-width:749px ) and (orientation: landscape) {
+  .wrapper {
+    --prism-height: 50vw;
+    --prism-length: 50vw;
+    --prism-depth: 50vw;
+  }
+}
+@media only screen and (min-width:750px) and (max-width:919px ) and (orientation: portrait) {
+  .wrapper {
+    --prism-height: 55vw;
+    --prism-length: 55vw;
+    --prism-depth: 55vw;
+  }
+}
+@media only screen and (min-width:750px) and (max-width:919px ) and (orientation: landscape) {
+  .wrapper {
+    --prism-height: 80vh;
+    --prism-length: 80vh;
+    --prism-depth: 80vh;
+  }
+}
+@media only screen and (min-width:920px )  {
+  .wrapper {
+    --prism-height: 50vh;
+    --prism-length: 50vh;
+    --prism-depth: 50vh;
+  }
+}
+
+
+// -----------------------------------------card start--------------------------------------------------
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: $spacing;
+  text-align: center;
+
+}
+
+.logo-area img {
+  width: 5rem;
+}
+
+.wrapper {
+  width: var(--prism-length);
+  height: var(--prism-height);
+   margin: auto;
+  perspective: 600px;
+  text-align: right;
+  /////////////////
+  z-index: 15;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  top: 50%;
+  text-align: right;
+}
+
+.rec-prism {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-100px);
+  transition: transform 0.5s ease-in;
+}
+
+.face {
+  opacity: .98;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--prism-length);
+  height: var(--prism-height);
+  padding: $spacing;
+  background: radial-gradient(circle, rgba(16, 18, 45, 1) 43%, rgba(8, 9, 27, 1) 80%);
+  border: 3px solid $border;
+  border-radius: 3px;
+
+  .content {
+    color: $text-dark;
+    width: 90%;
+
+    h2 {
+      font-size: 1.2em;
+      color: $text-light
+    }
+  }
+
+
+  .thank-you-msg {
+    position: absolute;
+    width: 200px;
+    height: 130px;
+    text-align: center;
+    font-size: 2em;
+    color: $gray;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    &:after {
+      position: absolute;
+      content: '';
+      width: 50px;
+      height: 25px;
+      border: 10px solid $gray;
+      border-right: 0;
+      border-top: 0;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(0deg) scale(0);
+      animation: success ease-in 0.15s forwards;
+      animation-delay: 2.5s;
+    }
+  }
+
+  &-front {
+    transform: rotateY(0deg) translateZ(calc(var(--prism-length)/2));
+  }
+
+  &-top {
+    height: var(--prism-depth);
+    transform: rotateX(90deg) translateZ(calc(var(--prism-depth)/2));
+  }
+
+  &-back {
+    transform: rotateY(180deg) translateZ(calc(var(--prism-length)/2));
+  }
+
+  &-right {
+    transform: rotateY(90deg) translateZ(calc(var(--prism-length)/2));
+  }
+
+  &-left {
+    transform: rotateY(-90deg) translateZ(calc(var(--prism-length)/2));
+  }
+
+  &-bottom {
+    height: var(--prism-depth);
+    transform: rotateX(-90deg) translateZ(calc(var(--prism-height) - (var(--prism-depth)/2)));
+  }
+}
+
+.nav {
+  margin: $spacing 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    list-style-type: none;
+    font-size: 1em;
+    margin: 0 $spacing/2;
+    color: $text-dark;
+    position: relative;
+    cursor: pointer;
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 20px;
+      border-bottom: 1px solid $border;
+      transition: all ease-in 0.25s;
+    }
+
+    &:hover:after {
+      width: 100%;
+    }
+  }
+}
+
+.psw,
+.signup,
+.singin {
+  display: block;
+  margin: $spacing 0;
+  font-size: 0.75em;
+  text-align: center;
+  color: $text-light;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.psw:hover,
+.signup:hover,
+.singin:hover {
+  font-size: .8em;
+
+}
+
+small {
+  font-size: 0.7em;
+}
+
+@keyframes success {
+  from {
+    transform: translate(-50%, -50%) rotate(0) scale(0);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+  }
+}
+
+// -----------------------------------------card end--------------------------------------------------
+
+
+
+
+
+//------------------------------------------- background start -------------------------------------------
+
+.body {
+
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+
+  &:active {
+
+    div,
+    div::before,
+    div::after {
+
+      padding: 40px;
+    }
+  }
+
+  div,
+  div::before,
+  div::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+    transform-origin: top;
+    transition: all 5s linear 0s;
+  }
+
+  @function random-num($min, $max) {
+    @return floor(random() * ($max - $min) + $min);
+  }
+
+  @function random-calc($number) {
+    $max: 100 - $number;
+    $min: $number * -1;
+    @return random-num($min, $max);
+  }
+
+  @each $color-name,
+  $color-hex in $colors {
+    // Initial top and left positions
+    $random1: random(100);
+    $random2: random(100);
+
+    // Animated top and left positions
+    $random3: random(100);
+    $random4: random(100);
+
+    // Animated top and left end positions
+    $random5: random(100);
+    $random6: random(100);
+
+    .#{$color-name} {
+      $size: random-num(5, 50) + px;
+      animation: #{$color-name} linear 30s alternate infinite;
+      border: 2px solid #{$color-hex};
+      border-radius: 100%;
+      width: $size;
+      height: $size;
+      transform: translate3d($random1 + vw,
+          $random2 + vh,
+          0);
+      z-index: random(12);
+    }
+
+    .#{$color-name}::before {
+      animation: #{$color-name}-pseudo linear 15s alternate infinite;
+      background: #{$color-hex};
+      border: 2px solid #{$color-hex};
+      width: random-num(5, 50) + px;
+      height: random-num(5, 50) + px;
+      transform:
+        translate3d(random-calc($random1) + vw,
+          random-calc($random2) + vh,
+          0) rotate((random(360)) + deg);
+    }
+
+    .#{$color-name}::after {
+      animation: #{$color-name}-pseudo linear 20s alternate infinite;
+      border: 2px solid #{$color-hex};
+      width: random-num(5, 50) + px;
+      height: random-num(5, 50) + px;
+      transform:
+        translate3d(random-calc($random1) + vw,
+          random-calc($random2) + vh,
+          0) rotate((random(360)) + deg);
+    }
+
+    @keyframes #{$color-name} {
+      50% {
+        transform: translate3d($random3 + vw,
+            $random4 + vh,
+            0);
+      }
+
+      100% {
+        transform: translate3d($random5 + vw,
+            $random6 + vh,
+            0);
+      }
+    }
+
+    @keyframes #{$color-name}-pseudo {
+      33% {
+        transform:
+          translate3d(random-calc($random3) + vw,
+            random-calc($random4) + vh,
+            0) rotate((random(360)) + deg);
+      }
+
+      100% {
+        transform:
+          translate3d(random-calc($random5) + vw,
+            random-calc($random6) + vh,
+            0) rotate((random(360)) + deg);
+      }
+    }
+  }
+}
+
+//------------------------------------------- background end -------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+span {
+  font-size: .7em;
+  line-height: 2rem;
+  color: $error;
+
+}

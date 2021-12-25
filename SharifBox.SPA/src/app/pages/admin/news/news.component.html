@@ -1,0 +1,79 @@
+<div class="row m-2">
+
+<h3>افزودن رویداد</h3>
+<form [formGroup]="newsForm" (ngSubmit)="submitNews()">
+<div class="row justify-content-center">
+  <div class="col-12 col-md-8 ">
+      <app-input placeholder="عنوان رویداد" type="text" label="عنوان رویداد" formControlName="title"></app-input>
+    <div class="error d-flex justify-content-center"
+      *ngIf="newsForm.controls.title.invalid && newsForm.controls.title.touched">
+      <span *ngIf="newsForm.controls.title.hasError('required')">
+        عنوان رویداد را وارد کنید
+      </span>
+    </div></div>
+</div>
+
+
+
+ <div class="row ">
+
+     <label class="customUpload">
+    <img [src]="newsForm.get('eventBanner')?.value" [alt]="newsForm.value.name">
+    <input type="file" accept="image/*" (change)="showPreview($event)" hidden />
+  </label>
+  </div>
+
+
+  <div class="row justify-content-center mb-2">
+
+    <div class="col-12 col-md-4 my-5 date-picker">
+      <label>تاریخ شروع</label>
+
+      <input type="text" #datepickerInput1 formControlName="startDate" />
+
+      <ng-persian-datepicker [input]="datepickerInput1" dateFormat="jYYYY/jMM/jDD" [timeEnable]="false">
+      </ng-persian-datepicker>
+
+    </div>
+
+    <div class="col-12 col-md-4 my-5 date-picker">
+      <label>تاریخ پایان</label>
+
+      <input type="text" #datepickerInput2 formControlName="endDate" />
+      <ng-persian-datepicker [input]="datepickerInput2" dateFormat="jYYYY/jMM/jDD" [timeEnable]="false">
+      </ng-persian-datepicker>
+
+    </div>
+
+  </div>
+
+  <!-- <div id="editor"></div> -->
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+  <ckeditor (blur)="ckTouch()" #editor [config]="editorConfig" [editor]="Editor" (change)="contentChange($event)">
+  </ckeditor>
+  <div class="error d-flex justify-content-center"
+    *ngIf="newsForm.controls.content.invalid && newsForm.controls.content.touched">
+    <span *ngIf="newsForm.controls.content.hasError('required')">
+      متن رویداد را وارد کنید
+    </span>
+  </div>
+  <!-- data="{{newsForm.get('content').value}}" -->
+</div></div>
+
+  <div class="checkbox-wrapper">
+    <span>نمایش در صفحه اصلی</span>
+    <input type="checkbox" id="cbx" style="display: none;" formControlName="showOnLanding">
+    <label for="cbx" class="check">
+      <svg width="30px" height="30px" viewBox="0 0 18 18">
+        <path
+          d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z">
+        </path>
+        <polyline points="1 9 7 14 15 4"></polyline>
+      </svg>
+    </label>
+  </div>
+
+  <app-btn label="ثبت"></app-btn>
+</form>
+</div>

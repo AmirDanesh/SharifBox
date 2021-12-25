@@ -1,0 +1,26 @@
+<!-- <div class="field-wrapper mt-4 mx-sm-5 mx-2">
+  <div *ngIf="textArea; else input">
+    <textarea textArea="true" (blur)="onTouched($event)" value={{InputValue}} (change)="onChange($event)"></textarea>
+  </div>
+
+  <ng-template #input>
+    <input type={{type}} (blur)="onTouched($event)" value={{InputValue}} (change)="onChange($event)">
+    <label>{{label}}</label>
+  </ng-template>
+</div> -->
+<!-- <div class="floating">
+  <input type="{{type}}" class="floating__input" placeholder="{{label}}">
+  <label class="floating__label" attr.data-content="{{label}}">
+    <span class="hidden--visually">{{label}}</span>
+  </label>
+</div> -->
+
+
+
+<div class="floating">
+  <input type="{{type}}" class="floating__input" type="text" placeholder={{label}} (blur)="onTouched($event)" value={{InputValue}} (change)="onChange($event)"/>
+  <label class="floating__label" attr.data-content="{{label}}">
+</label>
+</div>
+
+

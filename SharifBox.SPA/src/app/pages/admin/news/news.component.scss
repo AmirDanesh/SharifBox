@@ -1,0 +1,107 @@
+@import "../../../shared/styles/variables/_variables.scss";
+@import "../../../shared/styles/_override.scss";
+
+
+
+//---------------------------- checkbox start ---------------------------------------
+.checkbox-wrapper {
+  position: relative;
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+span {
+  color: $text-light;
+}
+
+
+.check {
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  position: relative;
+  width: 18px;
+  height: 18px;
+  transform: (translate3d(0, 0, 0), translateY(-50%));
+  right: 1rem;
+
+  :before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(34, 50, 84, 0.03);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  svg {
+    position: relative;
+    z-index: 1;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #c8ccd4;
+    stroke-width: 1.5;
+    transform: translate3d(0, 0, 0);
+    transition: all 0.2s ease;
+
+    path {
+      stroke-dasharray: 60;
+      stroke-dashoffset: 0;
+    }
+
+    polyline {
+      stroke-dasharray: 22;
+      stroke-dashoffset: 66;
+    }
+  }
+}
+
+
+.check:hover:before {
+  opacity: 1;
+}
+
+.check:hover svg {
+  stroke: $highlight-color;
+}
+
+#cbx:checked+.check svg {
+  stroke: $highlight-color;
+}
+
+#cbx:checked+.check svg path {
+  stroke-dashoffset: 60;
+  transition: all 0.3s linear;
+}
+
+#cbx:checked+.check svg polyline {
+  stroke-dashoffset: 42;
+  transition: all 0.2s linear;
+  transition-delay: 0.15s;
+}
+
+//---------------------------- checkbox end ---------------------------------------
+
+
+
+.error span {
+  font-size: .7em;
+  line-height: 2rem;
+  color: $error;
+
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,87 @@
+<div class="col-12">
+  <nb-layout>
+    <nb-layout-header fixed>
+
+      <a id="logo" routerLink="/">
+        <img src="../../../assets/images/box_logo.png">
+      </a>
+      <nb-user shape="rectangle" size="large" name="{{fullName}}" [nbContextMenu]="items"
+        nbContextMenuTag="my-context-menu" picture="http://demo.borhansoft.ir:5080/profilePicture/{{id}}">
+      </nb-user>
+    </nb-layout-header>
+    <!-- class="d-none d-md-block z1" -->
+
+    <nb-sidebar start state="compacted" class="z1">
+
+      <label>
+        <input type="radio" name="radio" />
+        <div class="card">
+          <div class="front"><i class="fa fa-users"></i></div>
+          <div class="back">
+            <span> تیم</span>
+            <ul>
+              <li routerLink='/team'>افزودن تیم</li>
+              <li routerLink='/team/list'> لیست تیم</li>
+              <li routerLink='/admin/users-list'> لیست کاربران</li>
+            </ul>
+
+          </div>
+        </div>
+      </label>
+      <label>
+        <input type="radio" name="radio" />
+        <div class="card">
+          <div class="front"><i class="fa fa-newspaper"></i></div>
+          <div class="back">
+            <span> رویدادها</span>
+            <ul>
+              <li routerLink='/admin/news'>افزون رویداد</li>
+              <li routerLink='/admin/news-list'>لیست رویدادها</li>
+            </ul>
+
+          </div>
+        </div>
+      </label>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      <label>
+        <input type="radio" name="radio" />
+        <div class="card">
+          <div class="front"><i class="fa fa-map-marker"></i></div>
+          <div class="back">
+            <span> فضا</span>
+            <ul>
+              <li routerLink='/admin/area'>افزودن فضا</li>
+              <li routerLink='/reservation'>انتخاب فضا</li>
+            </ul>
+
+          </div>
+        </div>
+      </label>
+
+    </nb-sidebar>
+
+    <nb-layout-column>
+      <nb-card id="outer-card">
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="col-md-9 col-12" id="main">
+          <nb-card id="inner-card">
+            <router-outlet>
+            </router-outlet>
+          </nb-card>
+        </div>
+      </nb-card>
+    </nb-layout-column>
+
+  </nb-layout>
+</div>

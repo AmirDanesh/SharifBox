@@ -1,0 +1,25 @@
+// this is our just created themes.scss file, make sure the path to the file is correct
+@import 'app/shared/styles/themes.scss';
+@import 'app/shared/styles/variables/variables';
+
+// framework component styles
+@import '~@nebular/theme/styles/globals';
+
+
+//install the framework styles
+@include nb-install() {
+  @include nb-theme-global();
+}
+
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+@import "assets/fonts/font-awesome/scss/fontawesome.scss";
+@import "assets/fonts/font-awesome/scss/duotone.scss";
+@import "assets/fonts/font-awesome/scss/brands.scss";
+@import 'app/shared/styles/override';
+
+body {
+ // background: radial-gradient(circle, rgba(16, 18, 45, 1) 43%, rgba(8, 9, 27, 1) 80%);
+  font-family: 'Vazir FD';
+}
+

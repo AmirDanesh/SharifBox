@@ -1,0 +1,13 @@
+<h2>ورود</h2>
+
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <app-input placeholder=" تلفن همراه" type="tel" label="تلفن همراه" formControlName="username"></app-input>
+
+  <app-input placeholder="رمز عبور" type="password" label="رمز عبور" formControlName="password"></app-input>
+
+  <app-btn label="ورود"></app-btn>
+  <div class="d-flex justify-content-center">
+    <span (click)="showSignup()"> ورود کاربر جدید </span>
+  </div>
+</form>
+

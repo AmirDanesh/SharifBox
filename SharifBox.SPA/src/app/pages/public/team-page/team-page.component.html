@@ -1,0 +1,31 @@
+<div class="headerWrapper p-2">
+  <label class="imageWrapper">
+    <img [src]="teamLogo" [alt]="">
+  </label>
+</div>
+
+<div class="bodyWrapper" *ngIf="model" >
+  <div class="col-md-8">
+    <app-readonly-input label="حوزه" [value]="model.activityField"></app-readonly-input>
+  </div>
+
+  <div class="col-md-8">
+    <app-readonly-input label="توضیحات" [value]="model.description"></app-readonly-input>
+  </div>
+
+
+  <div class="col-md-8 container">
+    <label>مسئول تیم</label>
+    <app-user-card imageUrl={{userImageUrl(model.managerUser?.key)}} [text]="model.managerUser?.value"></app-user-card>
+  </div>
+
+
+  <div class="col-md-8">
+    <label>اعضای تیم</label>
+    <div *ngFor="let user of model.users" class="mt-5">
+      <app-user-card imageUrl={{userImageUrl(user.key)}} text={{user.value}}></app-user-card>
+    </div>
+  </div>
+
+
+</div>

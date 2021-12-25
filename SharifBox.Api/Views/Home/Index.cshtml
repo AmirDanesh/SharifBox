@@ -1,0 +1,844 @@
+﻿<a href="javascript:" id="return-to-top"><i class="fa fa-angle-up"></i></a>
+
+<div id="preloader">
+    <div id="status">
+        <img src="/images/banner/loader.gif" id="preloader_image" alt="loader">
+    </div>
+</div>
+
+<div section-scroll='0' class="wd_scroll_wrap">
+    <header class="gc_main_menu_wrapper">
+        <nav class="navbar navbar-expand-lg navbar-dark wd_single_index_menu btc_main_menu">
+            <div class="login-btn nav-item active d-none d-lg-block ">
+                <a class="btn1 btn" href="http://demo.borhansoft.ir:4300/auth">
+                    <i class="fa fa-user"></i> <span>
+                        ورود / ثبت
+                        نام
+                    </span>
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+                <ul class="navbar-nav ml-auto" dir="rtl">
+                    <li class="nav-item active">
+                        <a class="nav-link color-white" href="0">خانه <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="1">درباره ما</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="2">امکانات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="3">تیم</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="4">لیست تعرفه</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="navbar-brand" href="#">
+                <img src="/images/logo/logo.png" style="width:100px">
+            </a>
+        </nav>
+    </header>
+    <section class="slider-area">
+        <canvas>
+            <script src="/js/three.js"></script>
+            <script src="/js/stats.min.js"></script>
+            <script src="/js/Projector.js"></script>
+            <script src="/js/CanvasRenderer.js"></script>
+        </canvas>
+
+        <div id="particles-js">
+
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                    @{
+                        var index = 1;
+                    }
+                    @if (ViewBag.Events.Count == 0)
+                    {
+                        <div class="carousel-item active">
+                            <div class="carousel-captions caption-1">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="slider-content">
+                                                <ul>
+
+                                                    <li data-animation="animated bounceInDown" class="slider_social_icon1">
+                                                        <a href="https://instagram.com/box.suf?igshid=1wvkhdo3hqc7i">
+                                                            <i class="fa fa-instagram"></i>
+                                                        </a>
+                                                    </li>
+
+                                                    <li data-animation="animated bounceInDown" class="slider_social_icon2">
+                                                        <a href="https://www.linkedin.com/company/boxsuf">
+                                                            <i class="fa fa-linkedin"></i>
+                                                        </a>
+                                                    </li>
+
+                                                    <li data-animation="animated bounceInDown" class="slider_social_icon3">
+                                                        <a href="#">
+                                                            <i class="fa fa-send-o"></i>
+                                                        </a>
+                                                    </li>
+
+                                                    <li data-animation="animated bounceInDown" class="slider_social_icon4">
+                                                        <a href="mailto:info@boxsuf.com">
+                                                            <i class="fa fa-envelope"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <img src="/images/sharif/logo.png">
+                                                <div class="buttons">
+                                                    <a href="http://demo.borhansoft.ir:4300/auth" class="btn1" data-animation="animated bounceInUp">
+                                                        عضویت
+                                                        مجازی
+                                                    </a>
+                                                    <a href="http://demo.borhansoft.ir:4300/auth" class="btn1" data-animation="animated bounceInUp">
+                                                        ثبت نام
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 hidden-xs hidden-sm fadeInUp animated"
+                                            data-wow-duration="1.0s"
+                                            style="visibility: visible; animation-duration: 1.0s; animation-name: fadeInUp;">
+                                            @*<h1 style="text-align: center;">@item.Title</h1>
+                                                <div class="eventBanner">
+                                                <img src="http://demo.borhansoft.ir:5008/EventBanner/@item.Id">
+                                                </div>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    @foreach (var item in ViewBag.Events)
+                    {
+                        var active = "";
+                        if (index == 1)
+                        {
+                            active = "active";
+                        }
+                        <div class="carousel-item @active">
+                            <div class="carousel-captions caption-1">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="slider-content">
+                                                <ul>
+
+                                                    <li data-animation="animated bounceInDown" class="slider_social_icon1">
+                                                        <a href="https://instagram.com/box.suf?igshid=1wvkhdo3hqc7i">
+                                                            <i class="fa fa-instagram"></i>
+                                                        </a>
+                                                    </li>
+
+                                                    <li data-animation="animated bounceInDown" class="slider_social_icon2">
+                                                        <a href="https://www.linkedin.com/company/boxsuf">
+                                                            <i class="fa fa-linkedin"></i>
+                                                        </a>
+                                                    </li>
+
+                                                    <li data-animation="animated bounceInDown" class="slider_social_icon3">
+                                                        <a href="#">
+                                                            <i class="fa fa-send-o"></i>
+                                                        </a>
+                                                    </li>
+
+                                                    <li data-animation="animated bounceInDown" class="slider_social_icon4">
+                                                        <a href="mailto:info@boxsuf.com">
+                                                            <i class="fa fa-envelope"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <img src="/images/sharif/logo.png">
+                                                <div class="buttons">
+                                                    <a href="http://demo.borhansoft.ir:4300/auth" class="btn1" data-animation="animated bounceInUp">
+                                                        عضویت
+                                                        مجازی
+                                                    </a>
+                                                    <a href="http://demo.borhansoft.ir:4300/auth" class="btn1" data-animation="animated bounceInUp">
+                                                        ثبت نام
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 hidden-xs hidden-sm fadeInUp animated"
+                                            data-wow-duration="1.0s"
+                                            style="visibility: visible; animation-duration: 1.0s; animation-name: fadeInUp;">
+                                            <h1 style="text-align: center;">@item.Title</h1>
+                                            <div class="eventBanner">
+                                                <img src="http://demo.borhansoft.ir:5080/EventBanner/@item.Id">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        index++;
+                    }
+                    <div class="carousel-nevigation">
+                        <a class="prev" href="#carousel-example-generic" role="button" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="next" href="#carousel-example-generic" role="button" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div section-scroll='1' class="wd_scroll_wrap">
+    <section class="about-area pd-t70 pd-b100 jarallax bg-img">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <br />
+                    <div class="about-content">
+                        <h2 class="f-40 fw-400 wow  fadeInUp animated" data-wow-duration="1.0s"
+                            style="visibility: visible; animation-duration: 1.0s; animation-name: fadeInUp;">
+                            درباره ما
+                        </h2>
+                        <p class="wow pl-md-4   fadeInUp animated" data-wow-duration="1.3s"
+                            style="visibility: visible; animation-duration: 1.3s; animation-name: fadeInUp;">
+
+                            BOX‭ ‬با‭ ‬هدف‭ ‬کمک‭ ‬به ‬توسعه‭ ‬کسب‭ ‬و‭ ‬کارها‭ ‬مبتنی‭ ‬بر‭ ‬فناوری‌های‭ ‬نوین‭
+                            ‬در‭
+                            ‬نزدیکی‭ ‬دانشگاه‭ ‬صنعتی‭ ‬شریف‭ ‬به‭ ‬مساحت‭ ‬۳۶۰۰‭ ‬مترمربع‭ ‬تاسیس‭ ‬گردیده‭
+                            ‬است‭.‬حضور‭ ‬فعال‭ ‬ذینفعان‭ ‬حوزه‭ ‬فناوری‭ ‬در‭ ‬این‭ ‬باشگاه،‭ ‬اعم‭ ‬از‭ ‬صاحبان‭
+                            ‬طرح‭
+                            ‬و‭ ‬سرمایه،‭ ‬سرمایه‌گذاران‭ ‬و‭ ‬شرکت‌های‭ ‬کارآفرینی‭ ‬منجر‭ ‬به‭ ‬رونق‭ ‬فضای‭
+                            ‬کسب‌و‌کار‭ ‬دانش‌بنیان‭ ‬می‌گردد‭.‬
+                            BOX‭ ‬ متشکل‭ ‬از‭ ‬دفاتر‭ ‬متعدد‭ ‬کاری،‭ ‬فضای‭ ‬کاری‭ ‬مشترک‭ ‬برای‭ ‬استارت‌آپ‌ها،‭
+                            ‬محل‭ ‬برگزاری‭ ‬جلسات‭ ‬و‭ ‬رویدادهای‭ ‬حوزه‌ی‭ ‬فناوری‭ ‬می‌باشد‭.‬این‭ ‬مجموعه‭ ‬سعی‭
+                            ‬کرده‭ ‬با‭ ‬استفاده‭ ‬از‭ ‬ارائه‭ ‬خدمات‭ ‬متناسب‭ ‬توسعه‭ ‬کسب‌و‌کار‭ ‬و‭ ‬همچنین‭
+                            ‬ایجاد‭
+                            ‬فضایی‭ ‬متفاوت‭ ‬و‭ ‬پویا‭ ‬جهت‭ ‬استقرار‭ ‬ذینفعان‭ ‬حوزه‌ی‭ ‬فناوری،‭ ‬منجر‭ ‬به‭
+                            ‬حمایت‭
+                            ‬و‭ ‬ارتقا‭ ‬از‭ ‬کسب‌و‌کارهای‭ ‬دانش‌بنیان‭ ‬شود‭.‬
+                        </p>
+                        <div class="buttons">
+                            <a href="#" class="btn1">عضویت در باکس</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="about-img wow  fadeInUp animated" data-wow-duration="1.0s"
+                        style="visibility: visible; animation-duration: 1.0s; animation-name: fadeInUp;">
+                        <img src="/images/about/1.png" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div section-scroll='2' class="wd_scroll_wrap">
+    <section class="projects bg-img pd-t100 pd-b70 jarallax">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                    <div class="section-heading">
+                        <h2 class="wow  fadeInUp animated" data-wow-duration="1.0s"
+                            style="visibility: visible; animation-duration: 1.0s; animation-name: fadeInUp;">
+                            امکانات
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-around">
+
+                <div class="project-list wow  fadeInUp animated" data-wow-duration="1.0s"
+                    style="visibility: visible; animation-duration: 1.0s; animation-name: fadeInUp;">
+                    <div class="content">
+                        <span class="icons"><img src="/images/icons/workplace.png" alt="" /></span>
+                        <h5> ‌cowork</h5>
+                    </div>
+                </div>
+
+                <div class="project-list wow  fadeInUp animated" data-wow-duration="1.3s"
+                    style="visibility: visible; animation-duration: 1.3s; animation-name: fadeInUp;">
+                    <div class="content">
+                        <span class="icons"><img src="/images/icons/school.png" alt="" /></span>
+                        <h5>box school</h5>
+                    </div>
+                </div>
+
+                <div class="project-list wow  fadeInUp animated" data-wow-duration="1.6s"
+                    style="visibility: visible; animation-duration: 1.6s; animation-name: fadeInUp;">
+                    <div class="content">
+                        <span class="icons"><img src="/images/icons/set.png" alt="" /></span>
+                        <h5>box studio</h5>
+                    </div>
+                </div>
+
+                <div class="project-list wow  fadeInUp animated" data-wow-duration="1.9s"
+                    style="visibility: visible; animation-duration: 1.9s; animation-name: fadeInUp;">
+                    <div class="content">
+                        <span class="icons"><img src="/images/icons/office.png" alt="" /></span>
+                        <h5>office </h5>
+                    </div>
+                </div>
+
+                <div class="project-list wow  fadeInUp animated" data-wow-duration="2.1s"
+                    style="visibility: visible; animation-duration: 2.1s; animation-name: fadeInUp;">
+                    <div class="content">
+                        <span class="icons"><img src="/images/icons/statistic.png" alt="" /></span>
+                        <h5>مشاوره کسب و کار </h5>
+                    </div>
+                </div>
+
+                <div class="project-list wow  fadeInUp animated" data-wow-duration="2.4s"
+                    style="visibility: visible; animation-duration: 2.4s; animation-name: fadeInUp;">
+                    <div class="content">
+                        <span class="icons"><img src="/images/icons/asset.png" alt="" /></span>
+                        <h5>مشاوره مالی و حقوقی</h5>
+                    </div>
+                </div>
+
+                <div class="project-list wow  fadeInUp animated" data-wow-duration="2.4s"
+                    style="visibility: visible; animation-duration: 2.4s; animation-name: fadeInUp;">
+                    <div class="content">
+                        <span class="icons"><img src="/images/icons/research.png" alt="" /></span>
+                        <h5>مشاوره بازار</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div section-scroll='3' class="wd_scroll_wrap">
+    <section class="projects bg-img pd-t100 pd-b70 jarallax teams">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                    <div class="section-heading">
+                        <h2 class="wow  fadeInUp animated" data-wow-duration="1.0s"
+                            style="visibility: visible; animation-duration: 1.0s; animation-name: fadeInUp;">
+                            تیم های مستقر در باکس
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-around">
+
+                @foreach (var team in ViewBag.Teams)
+                {
+                    <div class="project-list wow  fadeInUp animated" data-wow-duration="1.0s"
+                        style="visibility: visible; animation-duration: 1.0s; animation-name: fadeInUp;">
+                        <a href="http://demo.borhansoft.ir:4300/team-page/@team.Id" target="_blank">
+                            <div class="content">
+                                <span class="icons"><img src="http://demo.borhansoft.ir:5080/teamlogo/@team.Id" alt="@team.Name" /></span>
+                                <h5>@team.Name</h5>
+                            </div>
+                        </a>
+                    </div>
+                }
+
+            </div>
+    </section>
+
+    <div class="sud">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px" y="0px" viewBox="0 0 1920 181.1" style="enable-background:new 0 0 1920 181.1;" xml:space="preserve">
+            <style type="text/css">
+                .st0 {
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                    fill: #10122d;
+                }
+            </style>
+            <g>
+                <path class="st0" d="M0,80c0,0,28.9-4.2,43-13c14.3-9,71-35.7,137,5c17.3,7.7,33.3,13,48,11c17.3,0.3,50.3,4.7,66,23
+                     c20.3,9.7,68,40.3,134-12c24-11,59-16.3,104,2c21,7.3,85,27.7,117-14c24-30.7,62.7-55,141-12c26,10.3,72,14.7,110-14
+                     c37.7-19,89.7-29,122,53c23,32.7,47.7,66.3,97,26c24-22.7,51-78.3,137-38c0,0,28.3,15.7,52,15c23.7-0.7,50.7,4.3,76,41
+                     c19.7,19.7,71,36.7,121-2c0,0,22.3-16,55-12c0,0,32.7,6.7,56-71c23.3-76,79-92,122-29c9.3,13.7,25,42,62,43c37,1,51.7,25.3,67,48
+                     c15.3,22.7,51,22.7,53,23v28.1H0V80z" />
+
+            </g>
+        </svg>
+    </div>
+</div>
+
+
+<div section-scroll='' class="wd_scroll_wrap counter-block'">
+
+    <section class="currency-area pd-t100 pd-b70 mt-5">
+        <div class="container-fliud">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 justify-content-center">
+                    <div class="rete-list bt_title wow  fadeInUp animated" data-wow-duration="1.0s"
+                        style="visibility: visible; animation-duration: 1.0s; animation-name: fadeInUp;">
+                        <div class="content">
+                            <div class="con item" id="myTargetElement1">
+                                <img src="~/images/icons/calendar.png" />
+                                <h3 class="text-center">رویداد فناوری</h3>
+                                <h2 class="counter">63</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rete-list bt_title wow  fadeInUp animated" data-wow-duration="1.3s"
+                        style="visibility: visible; animation-duration: 1.3s; animation-name: fadeInUp;">
+                        <div class="content">
+                            <div class="con">
+                                <img src="~/images/icons/assets.png" />
+                                <h3 class="text-center">سرمایه جذب شده</h3>
+                                <h2 id="bilion" class="counter">4</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rete-list bt_title wow  fadeInUp animated" data-wow-duration="1.6s"
+                        style="visibility: visible; animation-duration: 1.6s; animation-name: fadeInUp;">
+                        <div class="content">
+                            <div class="con">
+                                <img src="~/images/icons/dollar.png" />
+                                <h3 class="text-center">سرمایه گذار</h3>
+                                <h2 class="counter">21</h2>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="rete-list bt_title wow  fadeInUp animated" data-wow-duration="1.9s"
+                        style="visibility: visible; animation-duration: 1.9s; animation-name: fadeInUp;">
+                        <div class="content">
+                            <div class="con">
+                                <img src="~/images/icons/rocket.png" />
+                                <h3 class="text-center">استارتاپ های فعال</h3>
+                                <h2 class="counter">67</h2>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</div>
+</div>
+</section>
+
+</div>
+
+<div section-scroll='' class="wd_scroll_wrap">
+
+    <section class="video-area section pd-t100 pd-b70 mt-5">
+        <div id="video-js">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="videos-heding">
+                            <div class="videos-box">
+                                <video poster="" controls="1" loop="1" style="max-width:100%;" class="mb-5">
+                                    <source type="video/mp4"
+                                        src="http://www.boxsuf.com/fa/wp-content/uploads/2019/12/Final03.mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="sud">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px" y="0px" viewBox="0 0 1920 181.1" style="enable-background:new 0 0 1920 181.1;" xml:space="preserve">
+            <style type="text/css">
+                .st0 {
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                    fill: #10122d;
+                }
+            </style>
+            <g>
+                <path class="st0" d="M0,80c0,0,28.9-4.2,43-13c14.3-9,71-35.7,137,5c17.3,7.7,33.3,13,48,11c17.3,0.3,50.3,4.7,66,23
+                     c20.3,9.7,68,40.3,134-12c24-11,59-16.3,104,2c21,7.3,85,27.7,117-14c24-30.7,62.7-55,141-12c26,10.3,72,14.7,110-14
+                     c37.7-19,89.7-29,122,53c23,32.7,47.7,66.3,97,26c24-22.7,51-78.3,137-38c0,0,28.3,15.7,52,15c23.7-0.7,50.7,4.3,76,41
+                     c19.7,19.7,71,36.7,121-2c0,0,22.3-16,55-12c0,0,32.7,6.7,56-71c23.3-76,79-92,122-29c9.3,13.7,25,42,62,43c37,1,51.7,25.3,67,48
+                     c15.3,22.7,51,22.7,53,23v28.1H0V80z" />
+
+            </g>
+        </svg>
+    </div>
+</div>
+
+<div section-scroll='4' class="wd_scroll_wrap">
+    <section class="tokens-area section">
+        <div id="token-js">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="section-heading2">
+                            <h2 class="wow  fadeInUp  animated" data-wow-duration="1.0s"
+                                style="visibility: visible; animation-duration: 1s; animation-name: fadeInUp;">
+                                لیست
+                                تعرفه
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-around">
+
+                    <div class="wow  fadeInUp  animated" data-wow-duration="1.3s"
+                        style="visibility: visible; animation-duration: 1.3s; animation-name: fadeInUp;">
+                        <div class="tokens">
+                            <div class="token-name">فضای اختصاصی</div>
+                            <div class="token-body">
+                                <h5> رزرو فضای اختصاصی</h5>
+                                <h5>قیمت</h5>
+                                <button class="left-btn" onclick="Redirect(202)">رزرو</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wow  fadeInUp  animated" data-wow-duration="1.6s"
+                        style="visibility: visible; animation-duration: 1.6s; animation-name: fadeInUp;">
+                        <div class="tokens">
+                            <div class="token-name">فضای اشتراکی</div>
+                            <div class="token-body">
+                                <h5>رزرو فضای اشتراکی</h5>
+                                <h5>قیمت</h5>
+                                <button class="right-btn" onclick="Redirect(202)">رزرو</button>
+                                <div class="prices">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wow  fadeInUp  animated" data-wow-duration="1.3s"
+                        style="visibility: visible; animation-duration: 1.3s; animation-name: fadeInUp;">
+                        <div class="tokens">
+                            <div class="token-name">اتاق جلسات</div>
+                            <div class="token-body">
+                                <h5>رزرو اتاق جلسات</h5>
+                                <h5>قیمت</h5>
+                                <button class="left-btn" onclick="Redirect(202)">رزرو</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div section-scroll='4' class="wd_scroll_wrap">
+    <section class="team-area pd-t100 pd-b50">
+        <div id="particles-team">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="section-heading2">
+                            <h2 class="wow  fadeInUp animated" data-wow-duration="1.0s"
+                                style="visibility: visible; animation-duration: 1.0s; animation-name: fadeInUp;">
+                                اعضای اجرایی تیم
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 wow  fadeInUp animated" data-wow-duration="1.3s"
+                        style="visibility: visible; animation-duration: 1.3s; animation-name: fadeInUp;">
+                        <div class="team-list">
+                            <div class="conte p-3">
+                                <div class="dbox">
+                                    <div class="dleft">
+                                        <img src="/images/team/1.png" alt="" />
+                                    </div>
+                                    <div class="dright">
+                                        <div class="content">
+                                            <h3>Ajay Suryavanshi</h3>
+                                            <span>(Co-Founder & CEO)</span>
+                                            <ul>
+                                                <li>
+                                                    <a href="https://instagram.com/box.suf?igshid=1wvkhdo3hqc7i">
+                                                        <i class="fa fa-instagram"></i>
+                                                    </a>
+                                                </li>
+
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li>
+                                                    <a href="https://www.linkedin.com/company/boxsuf">
+                                                        <i class="fa fa-linkedin"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="con">
+                                    <p>
+                                        در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و
+                                        شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای
+                                        اصلی و
+                                        جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار
+                                        گیرد.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 wow  fadeInUp animated" data-wow-duration="1.6s"
+                        style="visibility: visible; animation-duration: 1.6s; animation-name: fadeInUp;">
+                        <div class="team-list">
+                            <div class="conte p-3">
+                                <div class="dbox">
+                                    <div class="dleft">
+                                        <img src="/images/team/2.png" alt="" />
+                                    </div>
+                                    <div class="dright">
+                                        <div class="content">
+                                            <h3>Jeniffer Doe</h3>
+                                            <span>(Co-Founder & CEO)</span>
+                                            <ul>
+                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li>
+                                                    <a href="https://www.linkedin.com/company/boxsuf">
+                                                        <i class="fa fa-linkedin"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="con">
+                                    <p>
+                                        در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و
+                                        شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای
+                                        اصلی و
+                                        جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار
+                                        گیرد.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 wow  fadeInUp animated" data-wow-duration="1.9s"
+                        style="visibility: visible; animation-duration: 1.9s; animation-name: fadeInUp;">
+                        <div class="team-list">
+                            <div class="conte p-3">
+                                <div class="dbox">
+                                    <div class="dleft">
+                                        <img src="/images/team/3.png" alt="" />
+                                    </div>
+                                    <div class="dright">
+                                        <div class="content">
+                                            <h3>Akshay Handge</h3>
+                                            <span>(Co-Founder & CEO)</span>
+                                            <ul>
+                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li>
+                                                    <a href="https://www.linkedin.com/company/boxsuf">
+                                                        <i class="fa fa-linkedin"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="con">
+                                    <p>
+                                        در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و
+                                        شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای
+                                        اصلی و
+                                        جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار
+                                        گیرد.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 wow  fadeInUp animated" data-wow-duration="2.1s"
+                        style="visibility: visible; animation-duration: 2.1s; animation-name: fadeInUp;">
+                        <div class="team-list">
+                            <div class="conte p-3">
+                                <div class="dbox">
+                                    <div class="dleft">
+                                        <img src="/images/team/4.png" alt="" />
+                                    </div>
+                                    <div class="dright">
+                                        <div class="content">
+                                            <h3>Maria Willium</h3>
+                                            <span>(Co-Founder & CEO)</span>
+                                            <ul>
+                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li>
+                                                    <a href="https://www.linkedin.com/company/boxsuf">
+                                                        <i class="fa fa-linkedin"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="con">
+                                    <p>
+                                        در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و
+                                        شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای
+                                        اصلی و
+                                        جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار
+                                        گیرد.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+<div section-scroll='6' class="wd_scroll_wrap">
+
+
+    <footer class="top-foo">
+        <div id="footer-js">
+            <div class="footer-top section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="con">
+                                <h2 class="wow  fadeInUp animated" data-wow-duration="1.0s"
+                                    style="visibility: visible; animation-duration: 1.0s; animation-name: fadeInUp;">
+                                </h2>
+                                <ul>
+
+                                    <li class="wow  fadeInUp animated" data-wow-duration="1.3s"
+                                        style="visibility: visible; animation-duration: 1.3s; animation-name: fadeInUp;">
+                                        <a href="https://instagram.com/box.suf?igshid=1wvkhdo3hqc7i">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                    <li class="wow  fadeInUp animated" data-wow-duration="1.5s"
+                                        style="visibility: visible; animation-duration: 1.5; animation-name: fadeInUp;">
+                                        <a href="https://www.linkedin.com/company/boxsuf">
+                                            <i class="fa fa-linkedin"></i>
+                                        </a>
+                                    </li>
+                                    <li class="wow  fadeInUp animated" data-wow-duration="1.9s"
+                                        style="visibility: visible; animation-duration: 1.9s; animation-name: fadeInUp;">
+                                        <a href="#"><i class="fa fa-send-o"></i></a>
+                                    </li>
+
+                                    <li class="wow  fadeInUp animated" data-wow-duration="2.4s"
+                                        style="visibility: visible; animation-duration: 2.4s; animation-name: fadeInUp;">
+                                        <a href="info@boxsuf.com"><i class="fa fa-envelope"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="search_btm wow  fadeInUp animated" data-wow-duration="2.6s"
+                                            style="visibility: visible; animation-duration: 2.6s; animation-name: fadeInUp;">
+                                            <div class="search_main">
+                                                <input type="text" placeholder="ایمیل خود را وارد کنید">
+                                                <button type="submit">اشتراک در خبرنامه</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <footer class="foo-bot">
+
+
+        <div class="widgets_wrapper" style="">
+            <div class="container d-flex justify-content-between">
+                <div class="column one-third">
+                    <aside id="custom_html-3" class="widget_text widget widget_custom_html">
+                        <div class="textwidget custom-html-widget">
+                            <div class="image_frame image_item no_link scale-with-grid alignnone no_border">
+                                <div class="image_wrapper">
+                                    <img class="scale-with-grid"
+                                        src="http://www.boxsuf.com/fa/wp-content/uploads/2018/08/box_symbol2.png"
+                                        alt="box_symbol2" title="box_symbol2" width="161" height="50">
+                                </div>
+                            </div>
+
+                            <hr class="no_line" style="margin: 0 auto 20px;">
+
+                            <h4 style=" direction:rtl;font-size: 16px;">
+                                <i class="icon-pin" style="color: #84D0D9;font-size: 24px;"></i>تهـــران،
+                                خیـــابـــان آزادی، خیـــابـــان حبیب الله<br>
+                                خیابان قاسمی،جنب جهاد دانشگاهی شریف
+                            </h4>
+                        </div>
+                    </aside>
+                </div>
+                <div class="column one-third">
+                    <aside id="custom_html-2" class="widget_text widget widget_custom_html">
+                        <div class="textwidget custom-html-widget">
+                            <h3 style="direction:rtl;font-size: 24px;">تماس با BOX </h3>
+                            <h4 style=" direction:ltr;font-size: 16px;">
+                                <i class="icon-call" style="color: #84D0D9;font-size: 24px;"></i>
+                                <a href="tel:+98.21.66055625">۰۲۱ - ۶۶۰۵۵۶۲۵ - ۷</a>
+                            </h4>
+
+                            <h4 style="direction:ltr;font-size: 16px;">
+                                <i class="icon-print" style="color: #84D0D9;font-size: 24px;"></i>
+                                <a href="fax:+98.21.66050885">۰۲۱ - ۶۶۰۵۰۸۸۵</a>
+                            </h4>
+
+                            <p style="direction:ltr; font-size: 25px; line-height: 55px;">
+                                <a href="mailto:mailto:Info@boxsuf.com">
+                                    <i class="icon-mail-line" style="color: #84D0D9;"></i>
+                                </a>
+                                <a href="https://www.instagram.com/box.suf">
+                                    <i class="icon-instagram" style="direction:ltr; color: #84D0D9;"></i>
+                                </a>
+                                <a href="http://t.me/boxsuf">
+                                    <i class="icon-paper-plane" style="direction:ltr; color: #84D0D9;"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/company/boxsuf/">
+                                    <i class="icon-linkedin" style="direction:ltr; color: #84D0D9;"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer_copy">
+            <div class="container">
+                <div class="column one">
+                    <a id="back_to_top" class="button button_js" href=""><i class="icon-up-open-big"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+</div>
+
+<script>
+    function Redirect(type) {
+        window.location.assign('http://demo.borhansoft.ir:4300/reservation/' + type)
+    }
+</script>

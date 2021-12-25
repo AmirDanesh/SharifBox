@@ -1,0 +1,12 @@
+@import "../../../shared/styles/variables/_variables.scss";
+@import "../../../shared/styles/_override.scss";
+
+
+label{
+  color:$text-light;
+}
+.error span{
+  font-size: .7em;
+  line-height: 2rem;
+  color: $error;
+}

@@ -1,0 +1,53 @@
+@import "../../../shared/styles/_override";
+@import "../../../shared/styles/variables/variables";
+
+
+
+li{
+  list-style-type: none;
+  padding: 10px 0 15px;
+  margin: 0;
+  text-align: right;
+  width: 100%;
+}
+
+input{
+  width: 100%;
+}
+ li span:nth-child(2){
+   float: left;
+ }
+
+
+ ::ng-deep mat-horizontal-stepper.mat-stepper-horizontal
+ {
+   direction: ltr;
+   background-color: transparent;
+   font-family: 'Vazir FD';
+ }
+
+
+
+::ng-deep {
+  .mat-step-header{
+    .mat-step-icon-selected{
+  background-color: $highlight-color;
+    }
+    .mat-step-icon-state-done{
+  background-color: $highlight-color;
+    }
+    .mat-step-icon-state-edit{
+  background-color: $highlight-color;
+    }
+  }
+}
+
+
+
+
+span{
+  color: $text-light;
+  cursor: pointer;
+  margin-top: 1rem;
+  display: inline-block;
+}

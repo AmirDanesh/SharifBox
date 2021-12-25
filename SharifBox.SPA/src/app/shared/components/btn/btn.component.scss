@@ -1,0 +1,23 @@
+@import "../../../shared/styles/variables/_variables.scss";
+
+
+
+button {
+  font-family: "Vazir";
+  border: none;
+  appearance: none;
+  cursor: pointer;
+  background: linear-gradient(to right, rgba(57, 100, 208, 1) 0%, rgba(45, 193, 201, 1) 100%);
+  line-height: 2em;
+  color: $text-light;
+  border-radius: $lbr;
+  text-align: center;
+  margin-top: 1rem;
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

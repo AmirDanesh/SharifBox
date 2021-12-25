@@ -1,0 +1,176 @@
+<nb-layout>
+  <nb-layout-column>
+    <div class="logo-area">
+      <a href="index.html"><img src="http://www.boxsuf.com/fa/wp-content/uploads/2018/09/box_retina_logo2.png"></a>
+    </div>
+
+    <div class="body">
+      <div *ngFor="let color of colors" class="{{color}}">
+      </div>
+    </div>
+
+    <!-- top menu -->
+    <!-- <div class="d-flex justify-content-center">
+      <ul class="nav">
+        <li (click)="showLogin()">Login</li>
+        <li (click)="showSignup()">Sign up</li>
+        <li (click)="showForgotPassword()">Forgot password</li>
+        <li (click)="showCode()">Code</li>
+        <li (click)="showPassword()">Password</li>
+      </ul>
+    </div> -->
+
+
+    <div class="wrapper">
+      <div class="rec-prism" [ngStyle]="transformValue ? {'transform': transformValue} : ''">
+
+        <!-- code -->
+        <div class="face face-top">
+          <div class="content">
+            <h2>کد</h2>
+            <!-- form -->
+            <form (ngSubmit)="submitCode()" [formGroup]="codeForm" autocomplete="off">
+              <app-input placeholder=" کدارسال شده" type="text" label="کدارسال شده" formControlName="verificationCode">
+              </app-input>
+              <app-btn label="ثبت"></app-btn>
+            </form>
+          </div>
+        </div>
+
+        <!-- login -->
+        <div class="face face-front">
+          <div class="content">
+            <h2>ورود</h2>
+            <form (ngSubmit)="login()" [formGroup]="loginForm">
+
+              <app-input type="tel" placeholder="تلفن همراه" formControlName="username" label="تلفن همراه"></app-input>
+              <div class="d-flex justify-content-center"
+                *ngIf="loginForm.controls.username.invalid && loginForm.controls.username.touched">
+                <span *ngIf="loginForm.controls.username.hasError('required')">
+                  شماره ی همراه خود را وارد کنید
+                </span>
+                <span class="d-flex justify-content-center" *ngIf="loginForm.controls.username.hasError('pattern')">
+                  09xx xxx xxxx!لطفا شماره ی همراه خود را مانند نمونه وارد کنید
+                </span>
+              </div>
+              <app-input type="password" placeholder="رمز عبور " label="رمز عبور" formControlName="password">
+              </app-input>
+              <div class="d-flex justify-content-center"
+                *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched">
+                <span *ngIf="loginForm.controls.password.hasError('required')">
+                  !لطفا پسورد خود را وارد کنید
+                </span>
+                <span *ngIf="loginForm.controls.password.hasError('pattern')">رمز عبور فقط باید شامل عدد و حروف
+                  باشد</span>
+              </div>
+              <div class="row">
+                <app-btn class="col-sm-12 col-6" label="ورود"></app-btn>
+                <div class="col-sm-12 col-6">
+                  <a class="psw" (click)="showForgotPassword()">فراموشی رمز عبور </a>
+                  <a class="signup" (click)="showSignup()">ثبت نام </a>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+
+        <!-- forgot password -->
+        <div class="face face-back">
+          <div class="content">
+            <h2>فراموشی رمز عبور</h2>
+            <form (ngSubmit)="forgetPass()" [formGroup]="forgotPasswordForm">
+              <app-input type="tel" placeholder=" شماره تلفن " label="شماره تلفن" formControlName="phoneNumber">
+              </app-input>
+              <div class="d-flex justify-content-center"
+                *ngIf="forgotPasswordForm.controls.phoneNumber.invalid && forgotPasswordForm.controls.phoneNumber.touched">
+                <span *ngIf="forgotPasswordForm.controls.phoneNumber.hasError('required')">شماره تلفن همراه خود را وارد
+                  کنید</span>
+                <span *ngIf="forgotPasswordForm.controls.phoneNumber.hasError('pattern')"> 09xx xxx xxxx!لطفا شماره ی
+                  همراه خود را مانند نمونه وارد کنید</span>
+              </div>
+
+              <app-btn label="ثبت"></app-btn>
+            </form>
+          </div>
+        </div>
+
+
+        <!-- signup -->
+        <div class="face face-right">
+          <div class="content">
+            <h2 appMpInput>ثبت نام</h2>
+            <form (ngSubmit)="signup()" [formGroup]="signupForm" autocomplete="off">
+
+              <app-input type="text" placeholder="نام" label="نام" formControlName="firstName"></app-input>
+              <div class="d-flex justify-content-center"
+                *ngIf="signupForm.controls.firstName.invalid && signupForm.controls.firstName.touched">
+                <span *ngIf="signupForm.controls.firstName.hasError('required')">نام خود را وارد کنید</span>
+                <span *ngIf="signupForm.controls.firstName.hasError('pattern')">نام کاربری فقط شامل حروف باشد</span>
+              </div>
+
+
+
+              <app-input type="text" placeholder="نام" label="نام خانوادگی" formControlName="lastName"></app-input>
+              <div class="d-flex justify-content-center"
+                *ngIf="signupForm.controls.lastName.invalid && signupForm.controls.lastName.touched">
+                <span *ngIf="signupForm.controls.lastName.hasError('required')">نام خانوادگی خود را وارد کنید</span>
+                <span *ngIf="signupForm.controls.lastName.hasError('pattern')">نام خانوادگی فقط شامل حروف باشد</span>
+              </div>
+
+              <app-input type="tel" placeholder="شماره تلفن" label="شماره تلفن" formControlName="phoneNumber">
+              </app-input>
+              <div class="d-flex justify-content-center"
+                *ngIf="signupForm.controls.phoneNumber.invalid && signupForm.controls.phoneNumber.touched">
+                <span *ngIf="signupForm.controls.phoneNumber.hasError('required')">شماره ی نلفن همراه خود را وارد
+                  کنید</span>
+                <span *ngIf="signupForm.controls.phoneNumber.hasError('pattern')">09xxxxxxxxx شماره باید </span>
+              </div>
+
+
+
+              <div class="row">
+                <app-btn class="col-sm-12 col-6" label="ثبت"></app-btn>
+                <div class="col-sm-12 col-6">
+
+                  <a class="singin" (click)="showLogin()">ورود</a>
+                </div>
+
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+
+        <!-- password -->
+        <div class="face face-left">
+          <div class="content">
+            <h2>پسورد</h2>
+            <form (ngSubmit)="submitPass()" [formGroup]="passwordForm" autocomplete="off">
+              <app-input type="password" placeholder="رمز عبور" label="رمز عبور" formControlName="password"></app-input>
+              <app-input type="password" placeholder="تکرار رمزعبور" label="تکرار رمزعبور"
+                formControlName="passwordConfirm"></app-input>
+              <app-btn label="ثبت"></app-btn>
+            </form>
+          </div>
+        </div>
+
+
+        <!-- thank you -->
+        <div class="face face-bottom">
+          <div class="content">
+            <div class="thank-you-msg">
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+  </nb-layout-column>
+</nb-layout>

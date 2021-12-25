@@ -1,0 +1,32 @@
+<div class="row m-3" #dr>
+  <div class="col-12 col-md-3 m-3" *ngIf="model">
+
+    <app-readonly-input label="نام" [value]="model.firstName"></app-readonly-input>
+
+    <app-readonly-input label="نام خانوادگی" [value]="model.lastName"></app-readonly-input>
+
+    <app-readonly-input label="کدملی" [value]="model.nationalCode"></app-readonly-input>
+
+    <app-readonly-input label="آدرس" [value]="model.address"></app-readonly-input>
+    <!-- <label> مهارت ها</label>
+
+    <div *ngFor="let item of model.skillIds" class="mt-5">
+
+      <app-user-card [text]="item"></app-user-card>
+    </div> -->
+  </div>
+  <div class="col-12 col-md-8 d-flex flex-column justify-content-evenly ">
+    <div class="row my-5">
+          <ng2-smart-table
+    [source]="reservationSource"
+    [settings]="reservationSettings"></ng2-smart-table>
+    </div>
+
+<div class="row my-5">
+      <ng2-smart-table [source]="paymentSource"
+     [settings]="paymentSettings"></ng2-smart-table>
+</div>
+
+
+  </div>
+</div>
